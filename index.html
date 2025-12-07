@@ -68,10 +68,10 @@
         radial-gradient(circle at 18% 70%, rgba(255,255,255,0.55) 0, transparent 3px),
         radial-gradient(circle at 65% 78%, rgba(4,230,213,0.45) 0, transparent 3px),
         radial-gradient(circle at 50% 45%, rgba(255,255,255,0.45) 0, transparent 3px);
-      background-size: 260px 260px;
+      background-size: 200px 200px;
       mix-blend-mode: screen;
       opacity: 0.55;
-      animation: sparkleDrift 20s linear infinite;
+      animation: sparkleDrift 14s linear infinite;
     }
 
     body.dark-mode .sparkles {
@@ -79,14 +79,15 @@
     }
 
     body.light-mode .sparkles {
-      opacity: 0.5;
+      opacity: 0.75;
     }
 
     @keyframes sparkleDrift {
-      0%   { transform: translate3d(0,0,0) scale(1); }
-      50%  { transform: translate3d(-40px, 30px,0) scale(1.07); }
-      100% { transform: translate3d(60px,-35px,0) scale(1.02); }
-    }
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  33%  { transform: translate3d(-70px, 40px,0) scale(1.08); }
+  66%  { transform: translate3d(40px,-60px,0) scale(1.04); }
+  100% { transform: translate3d(80px,10px,0) scale(1.02); }
+}
 
     /* ===== CARD ===== */
     .card {
@@ -513,5 +514,6 @@
   </script>
 </body>
 </html>
+
 
 
