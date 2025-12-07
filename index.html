@@ -64,12 +64,8 @@
     }
 
  .card {
-  /* imaginea pe card + ușor zoom & drift în sus */
-  background-image: url("background.png");
-  background-repeat: no-repeat;
-  background-position: 50% 0%;
-  background-size: 108%;
-
+  background: url("background.png") center center/100% no-repeat;
+  animation: cardZoom 28s ease-in-out infinite alternate;
   border-radius: var(--card-radius);
   padding: 32px 40px 26px;
   box-shadow: var(--shadow-strong);
@@ -77,9 +73,6 @@
   border: 1px solid rgba(0, 180, 190, 0.32);
   position: relative;
   overflow: hidden;
-
-  /* animația cinematică doar pe card */
-  animation: cardDrift 28s ease-in-out infinite alternate;
 }
 
 /* folie de gradient întunecat peste poză, ca să se vadă textul/butoanele */
@@ -344,16 +337,15 @@
         background-position: 100% 0%;
       }
     }
-  @keyframes cardDrift {
+  @keyframes cardZoom {
   0% {
-    background-position: 50% 0%;
-    background-size: 108%;
+    background-size: 100%;
   }
   100% {
-    background-position: 50% -10%;
-    background-size: 120%;
+    background-size: 115%; /* poți ajusta 110–130 */
   }
 }
+
 
     
     /* RESPONSIVE */
@@ -545,6 +537,7 @@
   </div>
 </body>
 </html>
+
 
 
 
