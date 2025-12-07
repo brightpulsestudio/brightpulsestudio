@@ -41,13 +41,19 @@
       overflow-y: auto;        /* <<< permite scroll pe desktop & mobil */
       
       /* <<< FUNDAL CINEMATIC CU IMAGINEA TA >>> */
-      background:
-        radial-gradient(circle at top, rgba(0, 101, 114, 0.92), rgba(1, 8, 23, 0.97) 75%),
-        url("background.png") center top / cover fixed no-repeat;
-      background-attachment: fixed;
-      animation: bgZoom 40s ease-in-out infinite alternate;
+     background: url("background.png") center/cover no-repeat fixed;
+  animation: bgZoom 40s ease-in-out infinite alternate;
     }
- 
+@keyframes bgZoom {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 115%;
+  }
+}
+
+
 
     .page {
       min-height: 100vh;
@@ -524,6 +530,7 @@
   </div>
 </body>
 </html>
+
 
 
 
