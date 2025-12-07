@@ -2,520 +2,599 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BrightPulse Studio – Links</title>
+  <title>BrightPulse Studio – Official Link Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <meta
+    name="description"
+    content="BrightPulse Studio – Music · Identity · Manifestation. All platforms in one luminous hub."
+  />
   <style>
     :root {
-      /* AICI SCHIMBI VITEZA PULSULUI – 100 BPM ≈ 0.6s */
-      --pulse-speed: 1.5s;
+      /* VITEZA PULS LOGO – 100 BPM ≈ 0.6s (poți schimba aici: 0.8s, 1s etc.) */
+      --pulse-speed: 0.6s;
 
-      --turquoise: #04e6d5;
-      --turquoise-soft: rgba(4, 230, 213, 0.65);
-      --card-radius: 26px;
+      --turquoise: #00c4cf;
+      --turquoise-soft: #00aab3;
+      --turquoise-deep: #00757e;
+      --gold-soft: #f6d890;
+
+      --card-radius: 32px;
+      --link-radius: 999px;
+      --shadow-soft: 0 24px 60px rgba(7, 46, 64, 0.28);
+      --shadow-strong: 0 30px 80px rgba(0, 0, 0, 0.55);
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ===== BODY / PAGE ===== */
+
     body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      color: #e2f3ff;
+      position: relative;
+      overflow-y: auto;        /* <<< permite scroll pe desktop & mobil */
+      background: radial-gradient(circle at top, #006572, #010817 75%);
+      animation: bgShiftDark 26s ease-in-out infinite alternate;
+    }
+
+    .page {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at 0% 0%, #c8f8ff 0%, #e7ffe4 45%, #ffe6b8 100%);
-      background-size: 180% 180%;
-      animation: bgFlow 26s ease-in-out infinite alternate;
-      color: #12313b;
-      overflow: hidden;
-      position: relative;
-    }
-
-    body.dark-mode {
-      background: radial-gradient(circle at 0% -20%, #0a585e 0%, #021723 48%, #020915 100%);
-      animation-duration: 32s;
-      color: #f5fbff;
-    }
-
-    body.light-mode {
-      /* doar pentru claritate */
-    }
-
-    @keyframes bgFlow {
-      0%   { background-position: 0% 0%; }
-      50%  { background-position: 100% 40%; }
-      100% { background-position: 20% 100%; }
+      padding: 40px 12px;
     }
 
     /* ===== SPARKLES LAYER ===== */
+
     .sparkles {
       position: fixed;
-      inset: -10%;
+      inset: -18%;
       z-index: 1;
       pointer-events: none;
       background-image:
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.65) 0, transparent 3px),
-        radial-gradient(circle at 80% 18%, rgba(4,230,213,0.55) 0, transparent 3px),
-        radial-gradient(circle at 18% 70%, rgba(255,255,255,0.55) 0, transparent 3px),
-        radial-gradient(circle at 65% 78%, rgba(4,230,213,0.45) 0, transparent 3px),
-        radial-gradient(circle at 50% 45%, rgba(255,255,255,0.45) 0, transparent 3px);
-      background-size: 200px 200px;
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.75) 0, transparent 3px),
+        radial-gradient(circle at 80% 18%, rgba(0, 214, 209,0.70) 0, transparent 3px),
+        radial-gradient(circle at 20% 72%, rgba(255,255,255,0.65) 0, transparent 3px),
+        radial-gradient(circle at 68% 80%, rgba(0,214,209,0.60) 0, transparent 3px),
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,0.55) 0, transparent 3px);
+      background-size: 260px 260px;
       mix-blend-mode: screen;
-      opacity: 0.55;
-      animation: sparkleDrift 14s linear infinite;
+      opacity: 0.75;
+      animation:
+        sparkleDrift 32s linear infinite alternate,
+        sparkleTwinkle 4.8s ease-in-out infinite alternate;
     }
 
-    body.dark-mode .sparkles {
-      opacity: 0.75;
-    }
-
-    body.light-mode .sparkles {
-      opacity: 0.75;
+    @keyframes sparkleTwinkle {
+      0%, 100% { opacity: 0.3; }
+      40%     { opacity: 0.85; }
+      60%     { opacity: 0.55; }
     }
 
     @keyframes sparkleDrift {
-  0%   { transform: translate3d(0,0,0) scale(1); }
-  33%  { transform: translate3d(-70px, 40px,0) scale(1.08); }
-  66%  { transform: translate3d(40px,-60px,0) scale(1.04); }
-  100% { transform: translate3d(80px,10px,0) scale(1.02); }
-}
+      0% {
+        transform: translate3d(0,0,0) scale(1);
+      }
+      50% {
+        transform: translate3d(-60px,40px,0) scale(1.03);
+      }
+      100% {
+        transform: translate3d(70px,-50px,0) scale(1.02);
+      }
+    }
 
     /* ===== CARD ===== */
-    .card {
+
+    .card-wrapper {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       width: 100%;
-      max-width: 460px;
-      padding: 36px 30px 26px;
+      max-width: 520px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, #023846, #020c16 80%);
       border-radius: var(--card-radius);
-      background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-      box-shadow:
-        0 28px 60px rgba(0, 108, 117, 0.28),
-        0 0 0 1px rgba(255,255,255,0.7);
-      backdrop-filter: blur(22px);
-    }
-
-    body.dark-mode .card {
-      background: radial-gradient(circle at 0% 0%, rgba(5,122,135,0.9), rgba(3,32,44,0.98));
-      box-shadow:
-        0 28px 80px rgba(0, 0, 0, 0.85),
-        0 0 0 1px rgba(255,255,255,0.05);
-    }
-
-    /* ===== TOGGLE ===== */
-    .mode-toggle {
-      position: fixed;
-      top: 16px;
-      right: 18px;
-      z-index: 4;
-      border: none;
-      border-radius: 999px;
-      padding: 7px 16px 7px 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      font-family: inherit;
-      cursor: pointer;
-      background: rgba(255,255,255,0.92);
-      color: #12313b;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.16);
-      backdrop-filter: blur(18px);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.25s ease;
-    }
-
-    .mode-toggle span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mode-toggle-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #ffeaa7 0%, #ffd369 45%, #ffb347 100%);
-      box-shadow: 0 0 18px rgba(255,211,105,0.85);
-    }
-
-    body.dark-mode .mode-toggle {
-      background: rgba(2,15,24,0.92);
-      color: #f4feff;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.9);
-    }
-
-    body.dark-mode .mode-toggle-icon {
-      background: radial-gradient(circle at 30% 30%, #ffeaa7 0%, #ffd369 40%, #ffb347 80%, transparent 100%);
-      box-shadow: 0 0 18px rgba(255,225,155,0.9);
-    }
-
-    .mode-toggle:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.24);
-    }
-
-    /* ===== LOGO + GLOW ===== */
-    .logo-wrapper {
+      padding: 32px 40px 26px;
+      box-shadow: var(--shadow-strong);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 180, 190, 0.32);
       position: relative;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 26px;
-      margin-top: 6px;
+      overflow: hidden;
     }
 
-    .logo-ripple {
+    .card::before {
+      content: "";
       position: absolute;
-      inset: -12px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(4,230,213,0.9) 0%, rgba(4,230,213,0.42) 34%, transparent 70%);
-      filter: blur(4px);
-      opacity: 0.75;
-      animation: ripplePulse var(--pulse-speed) ease-out infinite;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        circle at 12% 0%,
+        rgba(0, 214, 209, 0.42),
+        transparent 60%
+      );
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===== HEADER / LOGO ===== */
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-orbit {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .logo-orbit::before,
+    .logo-orbit::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Glow moale fix */
+    .logo-orbit::before {
+      width: 190px;
+      height: 190px;
+      background: radial-gradient(
+        circle,
+        rgba(0, 214, 209, 0.85) 0,
+        transparent 60%
+      );
+      filter: blur(40px);
+      opacity: 0.9;
+    }
+
+    /* Ripple energetic pulsatoriu */
+    .logo-orbit::after {
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(178, 255, 252, 0.8);
+      box-shadow: 0 0 30px rgba(0, 214, 209, 0.85);
+      animation: logoRipple var(--pulse-speed) ease-out infinite;
+      opacity: 0.55;
     }
 
     .logo {
-      position: relative;
-      width: 136px; /* logo mai mare */
+      width: 130px;
       height: auto;
-      z-index: 1;
-      filter:
-        drop-shadow(0 0 20px rgba(4,230,213,0.7))
-        drop-shadow(0 8px 26px rgba(0,0,0,0.4));
+      filter: drop-shadow(0 0 8px rgba(0, 214, 209, 0.75));
       animation: logoPulse var(--pulse-speed) ease-in-out infinite;
-      transition: transform 0.18s ease;
-    }
-
-    .logo-wrapper:hover .logo {
-      transform: scale(1.06) translateY(-1px);
     }
 
     @keyframes logoPulse {
       0% {
         transform: scale(1);
-        filter:
-          drop-shadow(0 0 18px rgba(4,230,213,0.6))
-          drop-shadow(0 8px 22px rgba(0,0,0,0.45));
+        filter: drop-shadow(0 0 10px rgba(0, 214, 209, 0.65));
       }
       50% {
-        transform: scale(1.05);
-        filter:
-          drop-shadow(0 0 32px rgba(4,230,213,0.95))
-          drop-shadow(0 14px 32px rgba(0,0,0,0.55));
+        transform: scale(1.06);
+        filter: drop-shadow(0 0 22px rgba(0, 255, 240, 0.9));
       }
       100% {
         transform: scale(1);
-        filter:
-          drop-shadow(0 0 18px rgba(4,230,213,0.6))
-          drop-shadow(0 8px 22px rgba(0,0,0,0.45));
+        filter: drop-shadow(0 0 10px rgba(0, 214, 209, 0.65));
       }
     }
 
-    @keyframes ripplePulse {
+    @keyframes logoRipple {
       0% {
-        transform: scale(0.9);
-        opacity: 0.8;
+        transform: scale(0.82);
+        opacity: 0.4;
       }
-      70% {
-        transform: scale(1.25);
-        opacity: 0;
+      60% {
+        transform: scale(1.08);
+        opacity: 0.95;
       }
       100% {
-        transform: scale(1.3);
+        transform: scale(1.24);
         opacity: 0;
       }
     }
 
-    body.dark-mode .logo-ripple {
-      background: radial-gradient(circle, rgba(4,230,213,0.9) 0%, rgba(4,230,213,0.42) 28%, transparent 70%);
-      filter: blur(5px);
-    }
-
-    /* ===== TITLU ===== */
     .title-block {
       text-align: center;
-      margin-bottom: 26px;
+      margin-bottom: 12px;
+      margin-top: 4px;
     }
 
-    .title-main {
-      letter-spacing: 0.18em;
-      font-size: 18px;
-      font-weight: 700;
+    h1 {
+      font-size: 23px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
+      margin: 0 0 6px;
+      color: #f9fbff;
     }
 
-    .title-sub {
-      margin-top: 6px;
+    .subtitle {
       font-size: 11px;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      opacity: 0.72;
+      opacity: 0.78;
+    }
+
+    .bio {
+      max-width: 360px;
+      margin: 10px auto 12px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #d7f7ff;
+      opacity: 0.9;
+    }
+
+    /* ===== SOCIAL ICON ROW (INSTAGRAM / FACEBOOK / TIKTOK) ===== */
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 6px 0 18px;
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #0f172a, #020617);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(0, 214, 209, 0.55);
+      transition:
+        transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1),
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .social-icon img {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 18px 40px rgba(0, 214, 209, 0.95);
+      border-color: rgba(178, 255, 252, 0.95);
     }
 
     /* ===== LINKS ===== */
+
     .links {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 22px;
+      gap: 15px;
+      margin: 6px 0 10px;
     }
 
     .link-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 18px;
-      border-radius: 999px;
+      gap: 16px;
+      padding: 10px 18px 10px 14px;
+      border-radius: var(--link-radius);
+      background: radial-gradient(circle at 0% 0%, #064458, #020c16 90%);
+      border: 1px solid rgba(0, 0, 0, 0.7);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
       text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
       color: inherit;
-      background: linear-gradient(120deg, rgba(255,255,255,0.95), rgba(255,255,255,0.92));
-      box-shadow:
-        0 10px 22px rgba(0,0,0,0.12),
-        0 0 0 1px rgba(255,255,255,0.8);
       transition:
-        transform 0.18s cubic-bezier(0.19, 0.9, 0.22, 1),
-        box-shadow 0.18s ease,
-        background 0.22s ease,
-        filter 0.18s ease;
+        transform 0.26s cubic-bezier(0.22, 0.61, 0.36, 1),
+        box-shadow 0.26s ease,
+        background 0.26s ease;
     }
 
-    body.dark-mode .link-row {
-      background: radial-gradient(circle at 0% 0%, rgba(12,103,113,0.9), rgba(5,33,42,0.98));
-      box-shadow:
-        0 10px 28px rgba(0,0,0,0.85),
-        0 0 0 1px rgba(255,255,255,0.04);
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
-    .link-row:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow:
-        0 16px 40px rgba(4,230,213,0.45),
-        0 0 0 1px rgba(4,230,213,0.7);
-      background: radial-gradient(circle at 0% 0%, rgba(255,255,255,1), rgba(234,255,252,0.98));
-      filter: saturate(1.1);
-    }
-
-    body.dark-mode .link-row:hover {
-      background: radial-gradient(circle at 0% 0%, rgba(14,130,142,1), rgba(3,20,30,1));
-      box-shadow:
-        0 20px 52px rgba(0,0,0,0.95),
-        0 0 18px rgba(4,230,213,0.7);
-    }
-
-    .icon-circle {
+    .icon-pill {
       width: 40px;
       height: 40px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      flex-shrink: 0;
-      overflow: hidden;
+      background: radial-gradient(circle at 30% 20%, #0f172a, #020617);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.85);
     }
 
-    body.dark-mode .icon-circle {
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), rgba(0,0,0,0.85));
-      box-shadow: 0 4px 14px rgba(0,0,0,0.9);
-    }
-
-    .icon-circle img {
-      width: 26px;
-      height: 26px;
+    .icon {
+      width: 22px;
+      height: 22px;
       object-fit: contain;
       display: block;
     }
 
-    /* icon text pentru Email */
-    .icon-char {
-      font-size: 25px;
-      font-weight: 700;
-      color: #0a3b40;
-    }
-
-    body.dark-mode .icon-char {
-      color: #dffeff;
-    }
-
     .link-label {
-      flex: 1;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
     }
 
-    /* ===== FOOTER ===== */
-    .footer-note {
+    .link-row:hover {
+      transform: translateY(-5px) scale(1.015);
+      box-shadow:
+        0 24px 60px rgba(0, 214, 209, 0.7),
+        0 0 0 1px rgba(0, 214, 209, 0.9);
+      background: radial-gradient(circle at 5% 0%, #043848, #020814 90%);
+    }
+
+    /* FOOTER */
+
+    .footer {
       text-align: center;
       font-size: 11px;
-      opacity: 0.7;
+      opacity: 0.78;
+      margin-top: 16px;
     }
 
-    .footer-note span {
-      filter: drop-shadow(0 0 6px rgba(255,255,255,0.7));
+    /* BACKGROUND ANIMATION */
+
+    @keyframes bgShiftDark {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 50% 100%;
+      }
+      100% {
+        background-position: 100% 0%;
+      }
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 600px) {
+    /* RESPONSIVE */
+
+    @media (max-width: 640px) {
       .card {
-        margin: 18px;
-        padding: 30px 18px 22px;
+        padding: 28px 22px 22px;
+        border-radius: 26px;
       }
 
       .logo {
-        width: 122px;
+        width: 118px;
       }
 
-      .link-row {
-        padding-inline: 14px;
+      .logo-orbit::before {
+        width: 170px;
+        height: 170px;
       }
 
-      .mode-toggle {
-        top: 12px;
-        right: 12px;
-        padding-inline: 12px;
+      .logo-orbit::after {
+        width: 138px;
+        height: 138px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .icon-pill {
+        width: 36px;
+        height: 36px;
+      }
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+      .link-label {
+        font-size: 14px;
+      }
+      .social-icon {
+        width: 34px;
+        height: 34px;
+      }
+      .social-icon img {
+        width: 20px;
+        height: 20px;
       }
     }
   </style>
 </head>
-
-<body class="light-mode">
+<body>
   <div class="sparkles"></div>
 
-  <!-- Toggle Dark / Light -->
-  <button id="modeToggle" class="mode-toggle">
-    <span class="mode-toggle-icon" id="modeEmoji">☀️</span>
-    <span id="modeText">Light</span>
-  </button>
+  <div class="page">
+    <div class="card-wrapper">
+      <main class="card">
+        <div class="card-inner">
+          <header class="header">
+            <div class="logo-orbit">
+              <img src="logo.png" alt="BrightPulse Studio logo" class="logo" />
+            </div>
+            <div class="title-block">
+              <h1>BRIGHTPULSE STUDIO</h1>
+              <div class="subtitle">MUSIC · IDENTITY · MANIFESTATION</div>
+            </div>
 
-  <!-- Card -->
-  <main class="card">
-    <div class="logo-wrapper">
-      <div class="logo-ripple"></div>
-      <img src="logo.png" alt="BrightPulse Studio logo" class="logo">
+            <p class="bio">
+              Identity-driven, feminine-frequency soundscapes for soft power,
+              manifestation and deep inner alignment.
+            </p>
+
+            <div class="social-row">
+              <a
+                class="social-icon"
+                href="https://www.instagram.com/brightpulsestudio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="Instagram.png" alt="Instagram" />
+              </a>
+
+              <a
+                class="social-icon"
+                href="https://www.facebook.com/61583987851461"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="Facebook.png" alt="Facebook" />
+              </a>
+
+              <a
+                class="social-icon"
+                href="https://www.tiktok.com/@brightpulsestudio"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="TikTok.png" alt="TikTok" />
+              </a>
+            </div>
+          </header>
+
+          <section class="links">
+            <a
+              class="link-row"
+              href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="Spotify.png" alt="Spotify" class="icon" />
+                </span>
+                <span class="link-label">Spotify</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://music.apple.com/us/artist/brightpulse-studio/1853791966"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="Apple Music.png" alt="Apple Music" class="icon" />
+                </span>
+                <span class="link-label">Apple Music</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="YouTube Music.png" alt="YouTube Music" class="icon" />
+                </span>
+                <span class="link-label">YouTube Music</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://www.youtube.com/@BrightPulse.Studio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="YouTube.png" alt="YouTube" class="icon" />
+                </span>
+                <span class="link-label">YouTube</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://www.instagram.com/brightpulsestudio/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="Instagram.png" alt="Instagram" class="icon" />
+                </span>
+                <span class="link-label">Instagram</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://www.facebook.com/61583987851461"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="Facebook.png" alt="Facebook" class="icon" />
+                </span>
+                <span class="link-label">Facebook</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://www.tiktok.com/@brightpulsestudio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="TikTok.png" alt="TikTok" class="icon" />
+                </span>
+                <span class="link-label">TikTok</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://ko-fi.com/brightpulsestudio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="Ko-fi.png" alt="Ko-fi" class="icon" />
+                </span>
+                <span class="link-label">Ko-fi</span>
+              </div>
+            </a>
+
+            <a class="link-row" href="mailto:brightpulsestudio@gmail.com">
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="Email.png" alt="Email" class="icon" />
+                </span>
+                <span class="link-label">Email</span>
+              </div>
+            </a>
+          </section>
+
+          <footer class="footer">
+            Made with BrightPulse energy ✨
+          </footer>
+        </div>
+      </main>
     </div>
-
-    <div class="title-block">
-      <div class="title-main">BRIGHTPULSE STUDIO</div>
-      <div class="title-sub">MUSIC · IDENTITY · MANIFESTATION</div>
-    </div>
-
-    <div class="links">
-      <a class="link-row" href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l" target="_blank" rel="noopener">
-        <span class="icon-circle">
-          <img src="Spotify.png" alt="Spotify">
-        </span>
-        <span class="link-label">✨ Listen on Spotify</span>
-      </a>
-
-      <a class="link-row" href="https://music.apple.com/us/artist/brightpulse-studio/1853791966" target="_blank" rel="noopener">
-        <span class="icon-circle">
-          <img src="Apple Music.png" alt="Apple Music">
-        </span>
-        <span class="link-label">✨ Listen on Apple Music</span>
-      </a>
-
-      <a class="link-row" href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg" target="_blank" rel="noopener">
-        <span class="icon-circle">
-          <img src="YouTube Music.png" alt="YouTube Music">
-        </span>
-        <span class="link-label">✨ Listen on YouTube Music</span>
-      </a>
-
-      <a class="link-row" href="https://www.youtube.com/@BrightPulse.Studio" target="_blank" rel="noopener">
-        <span class="icon-circle">
-          <img src="YouTube.png" alt="YouTube">
-        </span>
-        <span class="link-label">✨ Subscribe to My YouTube Channel</span>
-      </a>
-
-      <a class="link-row" href="https://www.instagram.com/brightpulsestudio/" target="_blank" rel="noopener">
-        <span class="icon-circle">
-          <img src="Instagram.png" alt="Instagram">
-        </span>
-        <span class="link-label">✨ Follow to My Instagram</span>
-      </a>
-
-      <a class="link-row" href="https://www.facebook.com/61583987851461" target="_blank" rel="noopener">
-        <span class="icon-circle">
-          <img src="Facebook.png" alt="Facebook">
-        </span>
-        <span class="link-label">✨ Like My Facebook page</span>
-      </a>
-
-      <a class="link-row" href="https://www.tiktok.com/@brightpulsestudio" target="_blank" rel="noopener">
-        <span class="icon-circle">
-          <img src="TikTok.png" alt="TikTok">
-        </span>
-        <span class="link-label">✨ Subscribe to My TikTok</span>
-      </a>
-
-      <a class="link-row" href="https://ko-fi.com/brightpulsestudio" target="_blank" rel="noopener">
-        <span class="icon-circle">
-          <img src="Ko-fi.png" alt="Ko-fi">
-        </span>
-        <span class="link-label">Support the Frequency! Buy me a Ko-fi 💖 </span>
-      </a>
-
-      <!-- EMAIL BUTTON – schimbă adresa dacă vrei alta -->
-      <a class="link-row" href="mailto:brightpulsestudio@gmail.com">
-        <span class="icon-circle">
-          <span class="icon-char">✉</span>
-        </span>
-        <span class="link-label">Contact me</span>
-      </a>
-    </div>
-
-    <p class="footer-note">
-      Made with BrightPulse energy <span>✨</span>
-    </p>
-  </main>
-
-  <script>
-    const toggleBtn  = document.getElementById('modeToggle');
-    const modeText   = document.getElementById('modeText');
-    const modeEmoji  = document.getElementById('modeEmoji');
-
-    function applyMode(theme) {
-      const isDark = theme === 'dark';
-      document.body.classList.toggle('dark-mode', isDark);
-      document.body.classList.toggle('light-mode', !isDark);
-      modeText.textContent  = isDark ? 'Dark'  : 'Light';
-      modeEmoji.textContent = isDark ? '🌙' : '☀️';
-      localStorage.setItem('bp-theme', theme);
-    }
-
-    // Toggle la click
-    toggleBtn.addEventListener('click', () => {
-      const currentIsDark = document.body.classList.contains('dark-mode');
-      applyMode(currentIsDark ? 'light' : 'dark');
-    });
-
-    // La încărcare: ia tema din localStorage sau preferința de sistem
-    (function initTheme() {
-      const stored = localStorage.getItem('bp-theme');
-      if (stored === 'dark' || stored === 'light') {
-        applyMode(stored);
-      } else {
-        const prefersDark = window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyMode(prefersDark ? 'dark' : 'light');
-      }
-    })();
-  </script>
+  </div>
 </body>
 </html>
-
-
-
-
-
