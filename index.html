@@ -2,83 +2,127 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BrightPulse Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrightPulse Studio</title>
 
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Montserrat, sans-serif;
-  color: #fff;
-  background: linear-gradient(135deg,#009CA6,#E5C676);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
-}
+    body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(135deg, #009CA6, #E5C676);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.container {
-  background: rgba(0,0,0,0.35);
-  padding: 30px 20px;
-  border-radius: 20px;
-  backdrop-filter: blur(8px);
-  width: 90%;
-  max-width: 420px;
-}
+    .container {
+        background: rgba(0, 0, 0, 0.35);
+        padding: 40px 30px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 430px;
+        backdrop-filter: blur(8px);
+        text-align: center;
+    }
 
-.title {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
+    .logo {
+        width: 110px;
+        margin: 0 auto 10px auto;
+        display: block;
+    }
 
-.subtitle {
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  color: #f3e8c7;
-}
+    h1 {
+        color: white;
+        font-weight: 600;
+        margin-bottom: 5px;
+        font-size: 26px;
+    }
 
-.btn {
-  display: block;
-  margin: 10px auto;
-  padding: 14px;
-  width: 100%;
-  max-width: 340px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 30px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
+    .subtitle {
+        color: #e3e3e3;
+        letter-spacing: 3px;
+        font-size: 12px;
+        margin-bottom: 25px;
+    }
 
-.btn:hover {
-  background: rgba(255,255,255,0.22);
-}
+    .link-btn {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 16px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 40px;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 15px;
+        transition: 0.2s;
+    }
+
+    .link-btn:hover {
+        background: rgba(255, 255, 255, 0.28);
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+        margin-left: 10px;
+    }
+
 </style>
 </head>
 
 <body>
-<div class="container">
-  <div class="title">BrightPulse Studio</div>
-  <div class="subtitle">Music • Identity • Manifestation</div>
 
-  <a class="btn" href="https://www.instagram.com/brightpulsestudio/" target="_blank">Instagram</a>
-  <a class="btn" href="https://www.tiktok.com/@brightpulsestudio" target="_blank">TikTok</a>
-  <a class="btn" href="https://www.youtube.com/@BrightPulse.Studio" target="_blank">YouTube</a>
-  <a class="btn" href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg" target="_blank">YouTube Music</a>
-  <a class="btn" href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l" target="_blank">Spotify</a>
-  <a class="btn" href="https://www.facebook.com/61583987851461" target="_blank">Facebook</a>
-  <a class="btn" href="https://ko-fi.com/brightpulsestudio" target="_blank">Ko-fi</a>
+<div class="container">
+
+    <!-- LOGO -->
+    <img src="logo.png" class="logo" alt="BrightPulse Studio Logo">
+
+    <h1>BrightPulse Studio</h1>
+    <div class="subtitle">MUSIC · IDENTITY · MANIFESTATION</div>
+
+    <!-- LINKS WITH ICONS -->
+    <a class="link-btn" href="https://www.instagram.com/brightpulsestudio/" target="_blank">
+        <img src="icons/instagram.png" class="icon"> Instagram
+    </a>
+
+    <a class="link-btn" href="https://www.tiktok.com/@brightpulsestudio" target="_blank">
+        <img src="icons/tiktok.png" class="icon"> TikTok
+    </a>
+
+    <a class="link-btn" href="https://www.youtube.com/@BrightPulse.Studio" target="_blank">
+        <img src="icons/youtube.png" class="icon"> YouTube
+    </a>
+
+    <a class="link-btn" href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg" target="_blank">
+        <img src="icons/ytmusic.png" class="icon"> YouTube Music
+    </a>
+
+    <a class="link-btn" href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l" target="_blank">
+        <img src="icons/spotify.png" class="icon"> Spotify
+    </a>
+
+    <a class="link-btn" href="https://music.apple.com/us/artist/brightpulse-studio/1853791966" target="_blank">
+        <img src="icons/apple.png" class="icon"> Apple Music
+    </a>
+
+    <a class="link-btn" href="https://www.facebook.com/61583987851461" target="_blank">
+        <img src="icons/facebook.png" class="icon"> Facebook
+    </a>
+
+    <a class="link-btn" href="https://ko-fi.com/brightpulsestudio" target="_blank">
+        <img src="icons/kofi.png" class="icon"> Ko-fi
+    </a>
+
 </div>
+
 </body>
 </html>
