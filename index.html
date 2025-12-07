@@ -9,24 +9,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+    :root {
+        --bg-gradient: linear-gradient(135deg, #009CA6, #E5C676);
+        --card-bg: rgba(0, 0, 0, 0.35);
+        --text-main: #ffffff;
+        --text-sub: #e3e3e3;
+        --btn-bg: rgba(255, 255, 255, 0.18);
+        --btn-border: rgba(255, 255, 255, 0.25);
+    }
+
+    body.dark-mode {
+        --bg-gradient: radial-gradient(circle at top, #021c1f, #041016 55%, #02060a 100%);
+        --card-bg: rgba(5, 19, 26, 0.9);
+        --text-main: #fdfcfb;
+        --text-sub: #c3dfe6;
+        --btn-bg: rgba(255, 255, 255, 0.08);
+        --btn-border: rgba(229, 198, 118, 0.6);
+    }
+
     body {
         margin: 0;
         font-family: 'Montserrat', sans-serif;
-        background: linear-gradient(135deg, #009CA6, #E5C676);
-        height: 100vh;
+        background: var(--bg-gradient);
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: background 0.5s ease;
     }
 
     .container {
-        background: rgba(0, 0, 0, 0.35);
-        padding: 40px 30px;
-        border-radius: 20px;
+        background: var(--card-bg);
+        padding: 40px 30px 32px 30px;
+        border-radius: 24px;
         width: 90%;
         max-width: 430px;
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(10px);
         text-align: center;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        position: relative;
+        animation: fadeUp 0.7s ease-out;
+        transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(22px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .logo {
@@ -36,14 +70,14 @@
     }
 
     h1 {
-        color: white;
+        color: var(--text-main);
         font-weight: 600;
         margin-bottom: 5px;
         font-size: 26px;
     }
 
     .subtitle {
-        color: #e3e3e3;
+        color: var(--text-sub);
         letter-spacing: 3px;
         font-size: 12px;
         margin-bottom: 25px;
@@ -53,21 +87,28 @@
         width: 100%;
         padding: 14px;
         margin-bottom: 16px;
-        background: rgba(255, 255, 255, 0.18);
-        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: var(--btn-bg);
+        border: 1px solid var(--btn-border);
         border-radius: 40px;
-        color: white;
+        color: var(--text-main);
         text-decoration: none;
         font-size: 16px;
         display: flex;
         align-items: center;
-        justify-content: left;
+        justify-content: flex-start;
         gap: 15px;
-        transition: 0.2s;
+        transition: 0.2s ease-out;
     }
 
     .link-btn:hover {
-        background: rgba(255, 255, 255, 0.28);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    body.dark-mode .link-btn:hover {
+        background: rgba(229, 198, 118, 0.18);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
     }
 
     .icon {
@@ -76,12 +117,53 @@
         margin-left: 10px;
     }
 
+    /* Toggle button */
+    .mode-toggle {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        padding: 5px 11px;
+        font-size: 11px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(0, 0, 0, 0.2);
+        color: var(--text-sub);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        backdrop-filter: blur(8px);
+    }
+
+    .mode-toggle span {
+        font-size: 13px;
+    }
+
+    .mode-toggle-emoji {
+        font-size: 12px;
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 34px 22px 26px 22px;
+        }
+
+        .link-btn {
+            font-size: 15px;
+        }
+    }
 </style>
 </head>
 
 <body>
 
 <div class="container">
+
+    <!-- TOGGLE DARK/LIGHT -->
+    <button class="mode-toggle" id="modeToggle">
+        <span class="mode-toggle-emoji" id="modeEmoji">🌙</span>
+        <span id="modeText">Dark</span>
+    </button>
 
     <!-- LOGO -->
     <img src="logo.png" class="logo" alt="BrightPulse Studio Logo">
@@ -91,45 +173,59 @@
 
     <!-- 1️⃣ SPOTIFY -->
     <a class="link-btn" href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l" target="_blank">
-        <img src="icons/spotify.png" class="icon"> Spotify
+        <img src="icons/spotify.png" class="icon" alt=""> Spotify
     </a>
 
     <!-- 2️⃣ APPLE MUSIC -->
     <a class="link-btn" href="https://music.apple.com/us/artist/brightpulse-studio/1853791966" target="_blank">
-        <img src="icons/apple.png" class="icon"> Apple Music
+        <img src="icons/apple.png" class="icon" alt=""> Apple Music
     </a>
 
     <!-- 3️⃣ YT MUSIC -->
     <a class="link-btn" href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg" target="_blank">
-        <img src="icons/ytmusic.png" class="icon"> YouTube Music
+        <img src="icons/ytmusic.png" class="icon" alt=""> YouTube Music
     </a>
 
     <!-- 4️⃣ YOUTUBE -->
     <a class="link-btn" href="https://www.youtube.com/@BrightPulse.Studio" target="_blank">
-        <img src="icons/youtube.png" class="icon"> YouTube
+        <img src="icons/youtube.png" class="icon" alt=""> YouTube
     </a>
 
     <!-- 5️⃣ INSTAGRAM -->
     <a class="link-btn" href="https://www.instagram.com/brightpulsestudio/" target="_blank">
-        <img src="icons/instagram.png" class="icon"> Instagram
+        <img src="icons/instagram.png" class="icon" alt=""> Instagram
     </a>
 
     <!-- 6️⃣ FACEBOOK -->
     <a class="link-btn" href="https://www.facebook.com/61583987851461" target="_blank">
-        <img src="icons/facebook.png" class="icon"> Facebook
+        <img src="icons/facebook.png" class="icon" alt=""> Facebook
     </a>
 
     <!-- 7️⃣ TIKTOK -->
     <a class="link-btn" href="https://www.tiktok.com/@brightpulsestudio" target="_blank">
-        <img src="icons/tiktok.png" class="icon"> TikTok
+        <img src="icons/tiktok.png" class="icon" alt=""> TikTok
     </a>
 
     <!-- 8️⃣ KO-FI -->
     <a class="link-btn" href="https://ko-fi.com/brightpulsestudio" target="_blank">
-        <img src="icons/kofi.png" class="icon"> Ko-fi
+        <img src="icons/kofi.png" class="icon" alt=""> Ko-fi
     </a>
 
 </div>
+
+<script>
+    const toggleBtn = document.getElementById('modeToggle');
+    const modeText = document.getElementById('modeText');
+    const modeEmoji = document.getElementById('modeEmoji');
+
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+
+        const isDark = document.body.classList.contains('dark-mode');
+        modeText.textContent = isDark ? 'Light' : 'Dark';
+        modeEmoji.textContent = isDark ? '☀️' : '🌙';
+    });
+</script>
 
 </body>
 </html>
