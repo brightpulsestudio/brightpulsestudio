@@ -64,35 +64,31 @@
     }
 
  .card {
-      /* AICI E SCHIMBAREA:
-         1. background.png în card (fără animatie)
-         2. gradient închis peste, ca să rămână lizibile elementele
-      */
-      background:
-        radial-gradient(circle at top, rgba(2, 56, 70, 0.98), rgba(2, 12, 22, 0.99) 80%),
-        url("background.png") center/cover no-repeat;
-      border-radius: var(--card-radius);
-      padding: 32px 40px 26px;
-      box-shadow: var(--shadow-strong);
-      backdrop-filter: blur(24px);
-      border: 1px solid rgba(0, 180, 190, 0.32);
-      position: relative;
-      overflow: hidden;
-    }
+  /* doar imaginea de fundal pe card */
+  background: url("background.png") center top/cover no-repeat;
+  border-radius: var(--card-radius);
+  padding: 32px 40px 26px;
+  box-shadow: var(--shadow-strong);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 180, 190, 0.32);
+  position: relative;
+  overflow: hidden;
+}
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: radial-gradient(
-        circle at 12% 0%,
-        rgba(0, 214, 209, 0.42),
-        transparent 60%
-      );
-      opacity: 0.85;
-      pointer-events: none;
-    }
+/* folie de gradient întunecat peste poză, ca să se vadă textul/butoanele */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 12% 0%,
+    rgba(0, 214, 209, 0.22),
+    rgba(1, 8, 23, 0.92) 80%
+  );
+  opacity: 0.9;
+  pointer-events: none;
+}
 
     .card-inner {
       position: relative;
@@ -527,6 +523,7 @@
   </div>
 </body>
 </html>
+
 
 
 
