@@ -45,9 +45,17 @@
         radial-gradient(circle at top, rgba(0, 101, 114, 0.92), rgba(1, 8, 23, 0.97) 75%),
         url("background.png") center top / cover fixed no-repeat;
       background-attachment: fixed;
-      animation: bgShiftDark 26s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+      animation: bgZoom 40s ease-in-out infinite alternate;
     }
-    
+    @keyframes bgZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.12);
+  }
+}
+
     .page {
       min-height: 100vh;
       display: flex;
@@ -523,5 +531,6 @@
   </div>
 </body>
 </html>
+
 
 
