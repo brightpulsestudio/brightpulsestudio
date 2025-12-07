@@ -116,6 +116,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 18px;
+      margin-top: -8px;
     }
 
     .logo-orbit::before,
@@ -129,29 +130,29 @@
 
     /* Glow moale fix */
     .logo-orbit::before {
-      width: 190px;
-      height: 190px;
+      width: 160px;
+      height: 160px;
       background: radial-gradient(
         circle,
         rgba(0, 214, 209, 0.85) 0,
         transparent 60%
       );
-      filter: blur(40px);
+      filter: blur(35px);
       opacity: 0.9;
     }
 
     /* Ripple energetic pulsatoriu */
     .logo-orbit::after {
-      width: 150px;
-      height: 150px;
-      border: 1px solid rgba(178, 255, 252, 0.8);
-      box-shadow: 0 0 30px rgba(0, 214, 209, 0.85);
+      width: 130px;
+      height: 130px;
+      border: 2px solid rgba(178, 255, 252, 0.8);
+      box-shadow: 0 0 26px rgba(0, 214, 209, 0.85);
       animation: logoRipple var(--pulse-speed) ease-out infinite;
       opacity: 0.55;
     }
 
     .logo {
-      width: 130px;
+      width: 110px;
       height: auto;
       filter: drop-shadow(0 0 8px rgba(0, 214, 209, 0.75));
       animation: logoPulse var(--pulse-speed) ease-in-out infinite;
@@ -337,17 +338,17 @@
       }
 
       .logo {
-        width: 118px;
+        width: 100px;
       }
 
       .logo-orbit::before {
-        width: 170px;
-        height: 170px;
+        width: 145px;
+        height: 145px;
       }
 
       .logo-orbit::after {
-        width: 138px;
-        height: 138px;
+        width: 120px;
+        height: 120px;
       }
     }
 
@@ -517,6 +518,7 @@
   </div>
 </body>
 </html>
+
 
 
 
