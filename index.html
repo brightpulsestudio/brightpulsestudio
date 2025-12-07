@@ -69,34 +69,32 @@
     }
 
     .card {
-      background: url("background.png") center center/cover no-repeat;
-      border-radius: var(--card-radius);
-      padding: 32px 40px 26px;
-      box-shadow: var(--shadow-strong);
-      backdrop-filter: blur(24px);
-      border: 1px solid rgba(0, 180, 190, 0.32);
-      position: relative;
-      overflow: hidden;
-    }
+  background: radial-gradient(circle at top, #03424f, #02121c 85%);
+  border-radius: var(--card-radius);
+  padding: 32px 40px 26px;
+  box-shadow: var(--shadow-strong);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 180, 190, 0.25);
+  position: relative;
+  overflow: hidden;
+}
 
     /* folie de gradient întunecat peste poză, ca să se vadă textul/butoanele */
     .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
 
-      /* strat cinematic albastru */
-      background: radial-gradient(
-        circle at top,
-        rgba(0, 90, 120, 0.80),
-        rgba(0, 30, 45, 0.90) 70%
-      );
+  background: radial-gradient(
+      circle at top,
+      rgba(0, 190, 200, 0.14),
+      rgba(0, 40, 55, 0.55) 65%
+    );
 
-      opacity: 1;
-      pointer-events: none;
-    }
-
+  opacity: 1;
+  pointer-events: none;
+}
     .card-inner {
       position: relative;
       z-index: 2;
@@ -517,5 +515,6 @@
   </div>
 </body>
 </html>
+
 
 
