@@ -1,231 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BrightPulse Studio</title>
+  <meta charset="UTF-8" />
+  <title>BrightPulse Studio – Official Link Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="BrightPulse Studio – music • identity • manifestation. Listen on Spotify, Apple Music, YouTube Music and follow on social platforms." />
 
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <style>
     :root {
-        --bg-gradient: linear-gradient(135deg, #009CA6, #E5C676);
-        --card-bg: rgba(0, 0, 0, 0.35);
-        --text-main: #ffffff;
-        --text-sub: #e3e3e3;
-        --btn-bg: rgba(255, 255, 255, 0.18);
-        --btn-border: rgba(255, 255, 255, 0.25);
+      --turquoise: #009CA6;
+      --gold: #E5C676;
+      --dark-bg-1: #003640;
+      --dark-bg-2: #020817;
+      --light-bg-1: #c4f0f4;
+      --light-bg-2: #fff4ce;
+      --radius-card: 26px;
+      --radius-btn: 999px;
     }
 
-    body.dark-mode {
-        --bg-gradient: radial-gradient(circle at top, #021c1f, #041016 55%, #02060a 100%);
-        --card-bg: rgba(5, 19, 26, 0.9);
-        --text-main: #fdfcfb;
-        --text-sub: #c3dfe6;
-        --btn-bg: rgba(255, 255, 255, 0.08);
-        --btn-border: rgba(229, 198, 118, 0.6);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
-        background: var(--bg-gradient);
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background 0.5s ease;
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      transition: background 0.6s ease, color 0.6s ease;
     }
 
-    .container {
-        background: var(--card-bg);
-        padding: 40px 30px 32px 30px;
-        border-radius: 24px;
-        width: 90%;
-        max-width: 430px;
-        backdrop-filter: blur(10px);
-        text-align: center;
-        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
-        position: relative;
-        animation: fadeUp 0.7s ease-out;
-        transition: background 0.4s ease, box-shadow 0.4s ease;
+    /* ===== BACKGROUND THEMES ===== */
+    body.dark-mode {
+      background:
+        radial-gradient(circle at top, rgba(0,156,166,0.6) 0, transparent 55%),
+        radial-gradient(circle at bottom, rgba(229,198,118,0.55) 0, transparent 55%),
+        linear-gradient(135deg, var(--dark-bg-1), var(--dark-bg-2));
+      color: #f9fbff;
     }
 
-    @keyframes fadeUp {
-        from {
-            opacity: 0;
-            transform: translateY(22px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    body.light-mode {
+      background:
+        radial-gradient(circle at top, rgba(0,156,166,0.35) 0, transparent 55%),
+        radial-gradient(circle at bottom, rgba(229,198,118,0.4) 0, transparent 55%),
+        linear-gradient(135deg, var(--light-bg-1), var(--light-bg-2));
+      color: #0f172a;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      width: 100%;
+      max-width: 460px;
+      padding: 32px 26px 34px;
+      border-radius: var(--radius-card);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow:
+        0 0 25px rgba(0,0,0,0.35),
+        0 0 35px rgba(0,156,166,0.35),
+        0 0 55px rgba(229,198,118,0.30);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: background 0.6s ease, box-shadow 0.6s ease, border-color 0.6s ease;
+    }
+
+    body.dark-mode .card {
+      background: radial-gradient(circle at top, rgba(0,156,166,0.18), rgba(4,25,32,0.96));
+    }
+
+    body.light-mode .card {
+      background: radial-gradient(circle at top, rgba(255,255,255,0.95), rgba(243,250,255,0.98));
+      border-color: rgba(15,23,42,0.08);
+      box-shadow:
+        0 0 20px rgba(255,255,255,0.9),
+        0 0 36px rgba(0,156,166,0.30),
+        0 0 52px rgba(229,198,118,0.34);
     }
 
     .logo {
-        width: 110px;
-        margin: 0 auto 10px auto;
-        display: block;
+      width: 84px;
+      height: auto;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 10px rgba(0,0,0,0.45));
     }
 
     h1 {
-        color: var(--text-main);
-        font-weight: 600;
-        margin-bottom: 5px;
-        font-size: 26px;
+      font-size: 1.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
     }
 
     .subtitle {
-        color: var(--text-sub);
-        letter-spacing: 3px;
-        font-size: 12px;
-        margin-bottom: 25px;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0.86;
+      margin-bottom: 24px;
+    }
+
+    /* ===== LINKS ===== */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
     }
 
     .link-btn {
-        width: 100%;
-        padding: 14px;
-        margin-bottom: 16px;
-        background: var(--btn-bg);
-        border: 1px solid var(--btn-border);
-        border-radius: 40px;
-        color: var(--text-main);
-        text-decoration: none;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 15px;
-        transition: 0.2s ease-out;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 11px 18px;
+      border-radius: var(--radius-btn);
+      border: 1px solid rgba(255,255,255,0.15);
+      text-decoration: none;
+      font-size: 0.98rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      position: relative;
+      overflow: hidden;
+      transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+    }
+
+    /* Glow + culori pe butoane */
+    body.dark-mode .link-btn {
+      background: linear-gradient(135deg,
+               rgba(255,255,255,0.04),
+               rgba(0,0,0,0.45));
+      color: #f9fbff;
+      box-shadow:
+        0 0 12px rgba(0,0,0,0.6),
+        0 0 18px rgba(0,156,166,0.35);
+    }
+
+    body.light-mode .link-btn {
+      background: linear-gradient(135deg,
+               rgba(255,255,255,0.95),
+               rgba(255,255,255,0.75));
+      color: #0f172a;
+      border-color: rgba(15,23,42,0.08);
+      box-shadow:
+        0 0 10px rgba(255,255,255,0.9),
+        0 0 16px rgba(229,198,118,0.35);
     }
 
     .link-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
-        background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 18px rgba(229,198,118,0.7),
+        0 0 26px rgba(0,156,166,0.55);
     }
 
-    body.dark-mode .link-btn:hover {
-        background: rgba(229, 198, 118, 0.18);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+    .link-btn span.label {
+      flex: 1;
+      text-align: center;
     }
 
     .icon {
-        width: 24px;
-        height: 24px;
-        margin-left: 10px;
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      border-radius: 6px;
     }
 
-    /* Toggle button */
-    .mode-toggle {
-        position: absolute;
-        top: 14px;
-        right: 16px;
-        padding: 5px 11px;
-        font-size: 11px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        background: rgba(0, 0, 0, 0.2);
-        color: var(--text-sub);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        backdrop-filter: blur(8px);
+    /* ===== FOOTNOTE ===== */
+    .footnote {
+      margin-top: 16px;
+      font-size: 0.72rem;
+      opacity: 0.7;
     }
 
-    .mode-toggle span {
-        font-size: 13px;
+    /* ===== THEME TOGGLE ===== */
+    .theme-toggle {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 50;
+      border-radius: 999px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      cursor: pointer;
+      background: rgba(7,12,20,0.7);
+      color: #f9fbff;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 16px rgba(0,0,0,0.55);
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .mode-toggle-emoji {
-        font-size: 12px;
+    body.light-mode .theme-toggle {
+      background: rgba(255,255,255,0.92);
+      color: #0f172a;
+      border-color: rgba(15,23,42,0.12);
+      box-shadow:
+        0 0 10px rgba(255,255,255,0.9),
+        0 0 18px rgba(229,198,118,0.5);
+    }
+
+    .theme-toggle span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle .emoji {
+      font-size: 1rem;
     }
 
     @media (max-width: 480px) {
-        .container {
-            padding: 34px 22px 26px 22px;
-        }
-
-        .link-btn {
-            font-size: 15px;
-        }
+      .card {
+        padding: 26px 20px 30px;
+      }
+      .logo {
+        width: 72px;
+      }
+      h1 {
+        font-size: 1.45rem;
+      }
+      .subtitle {
+        font-size: 0.72rem;
+        letter-spacing: 0.24em;
+      }
+      .link-btn {
+        font-size: 0.9rem;
+        padding-inline: 14px;
+      }
+      .theme-toggle {
+        top: 14px;
+        right: 14px;
+        padding-inline: 10px;
+      }
     }
-</style>
+  </style>
 </head>
 
-<body>
+<body class="dark-mode">
+  <!-- Toggle Light/Dark -->
+  <button id="modeToggle" class="theme-toggle" type="button">
+    <span class="emoji" id="modeEmoji">🌙</span>
+    <span id="modeText">Dark</span>
+  </button>
 
-<div class="container">
-
-    <!-- TOGGLE DARK/LIGHT -->
-    <button class="mode-toggle" id="modeToggle">
-        <span class="mode-toggle-emoji" id="modeEmoji">🌙</span>
-        <span id="modeText">Dark</span>
-    </button>
-
-    <!-- LOGO -->
-    <img src="logo.png" class="logo" alt="BrightPulse Studio Logo">
-
+  <!-- CARD PRINCIPAL -->
+  <main class="card">
+    <img src="logo.png" alt="BrightPulse Studio logo" class="logo" />
     <h1>BrightPulse Studio</h1>
-    <div class="subtitle">MUSIC · IDENTITY · MANIFESTATION</div>
+    <p class="subtitle">MUSIC · IDENTITY · MANIFESTATION</p>
 
-    <!-- 1️⃣ SPOTIFY -->
-    <a class="link-btn" href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l" target="_blank">
-        <img src="icons/spotify.png" class="icon" alt=""> Spotify
-    </a>
+    <nav class="links">
+      <!-- 1. Spotify -->
+      <a class="link-btn"
+         href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l"
+         target="_blank" rel="noopener">
+        <img src="Spotify.png" alt="" class="icon">
+        <span class="label">Spotify</span>
+      </a>
 
-    <!-- 2️⃣ APPLE MUSIC -->
-    <a class="link-btn" href="https://music.apple.com/us/artist/brightpulse-studio/1853791966" target="_blank">
-        <img src="icons/apple.png" class="icon" alt=""> Apple Music
-    </a>
+      <!-- 2. Apple Music -->
+      <a class="link-btn"
+         href="https://music.apple.com/us/artist/brightpulse-studio/1853791966"
+         target="_blank" rel="noopener">
+        <img src="Apple Music.png" alt="" class="icon">
+        <span class="label">Apple Music</span>
+      </a>
 
-    <!-- 3️⃣ YT MUSIC -->
-    <a class="link-btn" href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg" target="_blank">
-        <img src="icons/ytmusic.png" class="icon" alt=""> YouTube Music
-    </a>
+      <!-- 3. YouTube Music -->
+      <a class="link-btn"
+         href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg"
+         target="_blank" rel="noopener">
+        <img src="YouTube Music.png" alt="" class="icon">
+        <span class="label">YouTube Music</span>
+      </a>
 
-    <!-- 4️⃣ YOUTUBE -->
-    <a class="link-btn" href="https://www.youtube.com/@BrightPulse.Studio" target="_blank">
-        <img src="icons/youtube.png" class="icon" alt=""> YouTube
-    </a>
+      <!-- 4. YouTube -->
+      <a class="link-btn"
+         href="https://www.youtube.com/@BrightPulse.Studio"
+         target="_blank" rel="noopener">
+        <img src="YouTube.png" alt="" class="icon">
+        <span class="label">YouTube</span>
+      </a>
 
-    <!-- 5️⃣ INSTAGRAM -->
-    <a class="link-btn" href="https://www.instagram.com/brightpulsestudio/" target="_blank">
-        <img src="icons/instagram.png" class="icon" alt=""> Instagram
-    </a>
+      <!-- 5. Instagram -->
+      <a class="link-btn"
+         href="https://www.instagram.com/brightpulsestudio/"
+         target="_blank" rel="noopener">
+        <img src="Instagram.png" alt="" class="icon">
+        <span class="label">Instagram</span>
+      </a>
 
-    <!-- 6️⃣ FACEBOOK -->
-    <a class="link-btn" href="https://www.facebook.com/61583987851461" target="_blank">
-        <img src="icons/facebook.png" class="icon" alt=""> Facebook
-    </a>
+      <!-- 6. Facebook -->
+      <a class="link-btn"
+         href="https://www.facebook.com/61583987851461"
+         target="_blank" rel="noopener">
+        <img src="Facebook.png" alt="" class="icon">
+        <span class="label">Facebook</span>
+      </a>
 
-    <!-- 7️⃣ TIKTOK -->
-    <a class="link-btn" href="https://www.tiktok.com/@brightpulsestudio" target="_blank">
-        <img src="icons/tiktok.png" class="icon" alt=""> TikTok
-    </a>
+      <!-- 7. TikTok -->
+      <a class="link-btn"
+         href="https://www.tiktok.com/@brightpulsestudio"
+         target="_blank" rel="noopener">
+        <img src="TikTok.png" alt="" class="icon">
+        <span class="label">TikTok</span>
+      </a>
 
-    <!-- 8️⃣ KO-FI -->
-    <a class="link-btn" href="https://ko-fi.com/brightpulsestudio" target="_blank">
-        <img src="icons/kofi.png" class="icon" alt=""> Ko-fi
-    </a>
+      <!-- 8. Ko-fi -->
+      <a class="link-btn"
+         href="https://ko-fi.com/brightpulsestudio"
+         target="_blank" rel="noopener">
+        <img src="Ko-fi.png" alt="" class="icon">
+        <span class="label">Ko-fi</span>
+      </a>
+    </nav>
 
-</div>
+    <p class="footnote">Made with BrightPulse energy ✨</p>
+  </main>
 
-<script>
+  <!-- THEME TOGGLE SCRIPT -->
+  <script>
     const toggleBtn = document.getElementById('modeToggle');
     const modeText = document.getElementById('modeText');
     const modeEmoji = document.getElementById('modeEmoji');
 
+    function applyMode(mode) {
+      document.body.classList.remove('light-mode', 'dark-mode');
+      document.body.classList.add(mode);
+
+      const isDark = mode === 'dark-mode';
+      modeText.textContent = isDark ? 'Dark' : 'Light';
+      modeEmoji.textContent = isDark ? '🌙' : '☀️';
+    }
+
+    // Citește preferința salvată
+    const savedMode = localStorage.getItem('bps-theme');
+    if (savedMode === 'light-mode' || savedMode === 'dark-mode') {
+      applyMode(savedMode);
+    } else {
+      applyMode('dark-mode'); // default
+    }
+
     toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-
-        const isDark = document.body.classList.contains('dark-mode');
-        modeText.textContent = isDark ? 'Light' : 'Dark';
-        modeEmoji.textContent = isDark ? '☀️' : '🌙';
+      const isDark = document.body.classList.contains('dark-mode');
+      const newMode = isDark ? 'light-mode' : 'dark-mode';
+      applyMode(newMode);
+      localStorage.setItem('bps-theme', newMode);
     });
-</script>
-
+  </script>
 </body>
 </html>
