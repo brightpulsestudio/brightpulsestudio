@@ -64,8 +64,12 @@
     }
 
  .card {
-  /* doar imaginea de fundal pe card */
-  background: url("background.png") center top/cover no-repeat;
+  /* imaginea pe card + ușor zoom & drift în sus */
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  background-size: 108%;
+
   border-radius: var(--card-radius);
   padding: 32px 40px 26px;
   box-shadow: var(--shadow-strong);
@@ -73,6 +77,9 @@
   border: 1px solid rgba(0, 180, 190, 0.32);
   position: relative;
   overflow: hidden;
+
+  /* animația cinematică doar pe card */
+  animation: cardDrift 28s ease-in-out infinite alternate;
 }
 
 /* folie de gradient întunecat peste poză, ca să se vadă textul/butoanele */
@@ -527,6 +534,7 @@
   </div>
 </body>
 </html>
+
 
 
 
