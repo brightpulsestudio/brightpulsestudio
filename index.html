@@ -93,11 +93,17 @@
     }
 
     .logo {
-      width: 84px;
-      height: auto;
-      margin-bottom: 10px;
-      filter: drop-shadow(0 0 10px rgba(0,0,0,0.45));
-    }
+    width: 120px;   /* ← mărește aici (130 / 140 / 150 px) */
+    height: auto;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.45));
+    transition: transform 0.3s ease, filter 0.3s ease; /* ← ca să fie animat */
+}
+    .logo:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 18px rgba(0,156,166,0.65))
+            drop-shadow(0 0 28px rgba(229,198,118,0.55));
+}
 
     h1 {
       font-size: 1.7rem;
@@ -400,5 +406,6 @@
   </script>
 </body>
 </html>
+
 
 
