@@ -39,55 +39,21 @@
       color: #e2f3ff;
       position: relative;
       overflow-y: auto;        /* <<< permite scroll pe desktop & mobil */
-      background: radial-gradient(circle at top, #006572, #010817 75%);
+      
+      /* <<< FUNDAL CINEMATIC CU IMAGINEA TA >>> */
+      background:
+        radial-gradient(circle at top, rgba(0, 101, 114, 0.92), rgba(1, 8, 23, 0.97) 75%),
+        url("background.png") center top / cover fixed no-repeat;
+      background-attachment: fixed;
       animation: bgShiftDark 26s ease-in-out infinite alternate;
     }
-
+    
     .page {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px 12px;
-    }
-
-    /* ===== SPARKLES LAYER ===== */
-
-    .sparkles {
-      position: fixed;
-      inset: -18%;
-      z-index: 1;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.75) 0, transparent 3px),
-        radial-gradient(circle at 80% 18%, rgba(0, 214, 209,0.70) 0, transparent 3px),
-        radial-gradient(circle at 20% 72%, rgba(255,255,255,0.65) 0, transparent 3px),
-        radial-gradient(circle at 68% 80%, rgba(0,214,209,0.60) 0, transparent 3px),
-        radial-gradient(circle at 50% 45%, rgba(255,255,255,0.55) 0, transparent 3px);
-      background-size: 260px 260px;
-      mix-blend-mode: screen;
-      opacity: 0.75;
-      animation:
-        sparkleDrift 32s linear infinite alternate,
-        sparkleTwinkle 4.8s ease-in-out infinite alternate;
-    }
-
-    @keyframes sparkleTwinkle {
-      0%, 100% { opacity: 0.3; }
-      40%     { opacity: 0.85; }
-      60%     { opacity: 0.55; }
-    }
-
-    @keyframes sparkleDrift {
-      0% {
-        transform: translate3d(0,0,0) scale(1);
-      }
-      50% {
-        transform: translate3d(-60px,40px,0) scale(1.03);
-      }
-      100% {
-        transform: translate3d(70px,-50px,0) scale(1.02);
-      }
     }
 
     /* ===== CARD ===== */
@@ -557,3 +523,4 @@
   </div>
 </body>
 </html>
+
