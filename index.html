@@ -11,7 +11,9 @@
 
   <!-- PRELOAD pentru imaginile mari de fundal -->
   <link rel="preload" as="image" href="background1.png" />
-  <link rel="preload" as="image" href="background.png" />
+
+  
+   <!-- <link rel="preload" as="image" href="background.png" /> aici am scos background de pe card-->
 
   <style>
     :root {
@@ -48,7 +50,7 @@
       /* Fundal cinematic – FĂRĂ fixed (mai fluid pe mobil) */
       background:
         radial-gradient(circle at top, rgba(0, 101, 114, 0.92), rgba(1, 8, 23, 0.97) 80%),
-        url("background1.png") center/cover no-repeat;
+        url("background.png") center/cover no-repeat;
     }
 
     .page {
@@ -515,6 +517,7 @@
   </div>
 </body>
 </html>
+
 
 
 
