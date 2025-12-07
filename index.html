@@ -1,245 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BrightPulse Studio</title>
+  <meta charset="UTF-8" />
+  <title>BrightPulse Studio – Official Link Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="BrightPulse Studio – Music · Identity · Manifestation. All platforms in one luminous hub."
+  />
+  <style>
+    :root {
+      /* VITEZA PULS LOGO – 100 BPM ≈ 0.6s (poți schimba aici: 0.8s, 1s etc.) */
+      --pulse-speed: 2s;
 
-<style>
+      --turquoise: #00c4cf;
+      --turquoise-soft: #00aab3;
+      --turquoise-deep: #00757e;
+      --gold-soft: #f6d890;
 
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
+      --card-radius: 32px;
+      --link-radius: 999px;
+      --shadow-soft: 0 24px 60px rgba(7, 46, 64, 0.28);
+      --shadow-strong: 0 30px 80px rgba(0, 0, 0, 0.55);
+    }
 
-/* ===== GLOBAL DARK MODE (PERMANENT) ===== */
-body {
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* ===== CINEMATIC BACKGROUND IMAGE ===== */
-.bg-image {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('background.png');
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.45) saturate(1.2) blur(2px);
-  z-index: -3;
-}
+    /* ===== BODY / PAGE ===== */
 
-/* Dark cinematic vignette */
-.bg-vignette {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.75) 100%);
-  z-index: -2;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      color: #e2f3ff;
+      position: relative;
+      overflow-y: auto;        /* <<< permite scroll pe desktop & mobil */
+      background: radial-gradient(circle at top, #006572, #010817 75%);
+      animation: bgShiftDark 26s ease-in-out infinite alternate;
+    }
 
-/* Soft teal overlay for BrightPulse aesthetic */
-.bg-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: rgba(0, 180, 180, 0.10);
-  mix-blend-mode: screen;
-  z-index: -1;
-}
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 12px;
+    }
 
-/* ===== MAIN CARD ===== */
-.container {
-  width: 92%;
-  max-width: 480px;
-  margin: 50px auto;
-  padding: 40px 25px 60px;
-  background: rgba(0, 15, 20, 0.55);
-  border-radius: 28px;
-  box-shadow: 0 0 50px rgba(0, 255, 255, 0.10);
-  backdrop-filter: blur(16px);
-}
+    /* ===== SPARKLES LAYER ===== */
 
-/* ===== LOGO WITH PULSE ===== */
-.logo-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 25px;
-}
+    .sparkles {
+      position: fixed;
+      inset: -18%;
+      z-index: 1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.75) 0, transparent 3px),
+        radial-gradient(circle at 80% 18%, rgba(0, 214, 209,0.70) 0, transparent 3px),
+        radial-gradient(circle at 20% 72%, rgba(255,255,255,0.65) 0, transparent 3px),
+        radial-gradient(circle at 68% 80%, rgba(0,214,209,0.60) 0, transparent 3px),
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,0.55) 0, transparent 3px);
+      background-size: 260px 260px;
+      mix-blend-mode: screen;
+      opacity: 0.75;
+      animation:
+        sparkleDrift 32s linear infinite alternate,
+        sparkleTwinkle 4.8s ease-in-out infinite alternate;
+    }
 
-.logo {
-  width: 150px;
-  filter: drop-shadow(0 0 25px rgba(0,255,255,0.45));
-  animation: pulseGlow 1s infinite ease-in-out;
-}
+    @keyframes sparkleTwinkle {
+      0%, 100% { opacity: 0.3; }
+      40%     { opacity: 0.85; }
+      60%     { opacity: 0.55; }
+    }
 
-@keyframes pulseGlow {
-  0% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(0,255,255,0.35)); }
-  50% { transform: scale(1.05); filter: drop-shadow(0 0 45px rgba(0,255,255,0.7)); }
-  100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(0,255,255,0.35)); }
-}
+    @keyframes sparkleDrift {
+      0% {
+        transform: translate3d(0,0,0) scale(1);
+      }
+      50% {
+        transform: translate3d(-60px,40px,0) scale(1.03);
+      }
+      100% {
+        transform: translate3d(70px,-50px,0) scale(1.02);
+      }
+    }
 
-/* ===== TITLE ===== */
-h1 {
-  text-align: center;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
-}
+    /* ===== CARD ===== */
 
-.subtext {
-  text-align: center;
-  font-size: 0.78rem;
-  letter-spacing: 4px;
-  opacity: 0.8;
-}
+    .card-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 520px;
+    }
 
-/* ===== BIO TEXT ===== */
-.bio {
-  text-align: center;
-  margin: 18px 0 20px;
-  font-size: 0.9rem;
-  opacity: 0.92;
-  line-height: 1.45;
-}
+    .card {
+      background: radial-gradient(circle at top, #023846, #020c16 80%);
+      border-radius: var(--card-radius);
+      padding: 32px 40px 26px;
+      box-shadow: var(--shadow-strong);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 180, 190, 0.32);
+      position: relative;
+      overflow: hidden;
+    }
 
-/* ===== SOCIAL ICON ROW ===== */
-.social-row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 25px;
-}
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        circle at 12% 0%,
+        rgba(0, 214, 209, 0.42),
+        transparent 60%
+      );
+      opacity: 0.85;
+      pointer-events: none;
+    }
 
-.social-row img {
-  width: 34px;
-  height: 34px;
-  transition: 0.25s;
-  filter: drop-shadow(0 0 6px rgba(0,255,255,0.2));
-}
+    .card-inner {
+      position: relative;
+      z-index: 2;
+    }
 
-.social-row img:hover {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 10px rgba(0,255,255,0.8));
-}
+    /* ===== HEADER / LOGO ===== */
 
-/* ===== BUTTONS ===== */
-.link-btn {
-  width: 100%;
-  background: rgba(0, 30, 40, 0.65);
-  padding: 16px 18px;
-  border-radius: 40px;
-  margin: 12px 0;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: inset 0 0 0 rgba(0,255,255,0.0);
-  border: 1px solid rgba(0,255,255,0.05);
-}
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.link-btn:hover {
-  background: rgba(0, 45, 60, 0.85);
-  box-shadow: 0 0 15px rgba(0,255,255,0.25);
-  transform: translateY(-3px);
-}
+    .logo-orbit {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
 
-.link-btn img {
-  width: 32px;
-  height: 32px;
-}
+    .logo-orbit::before,
+    .logo-orbit::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
 
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 0.8rem;
-  opacity: 0.7;
-}
+    /* Glow moale fix */
+    .logo-orbit::before {
+      width: 190px;
+      height: 190px;
+      background: radial-gradient(
+        circle,
+        rgba(0, 214, 209, 0.85) 0,
+        transparent 60%
+      );
+      filter: blur(40px);
+      opacity: 0.9;
+    }
 
-footer .copyright {
-  margin-top: 6px;
-  font-size: 0.65rem;
-  opacity: 0.55;
-}
+    /* Ripple energetic pulsatoriu */
+    .logo-orbit::after {
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(178, 255, 252, 0.8);
+      box-shadow: 0 0 30px rgba(0, 214, 209, 0.85);
+      animation: logoRipple var(--pulse-speed) ease-out infinite;
+      opacity: 0.55;
+    }
 
-</style>
+    .logo {
+      width: 130px;
+      height: auto;
+      filter: drop-shadow(0 0 8px rgba(0, 214, 209, 0.75));
+      animation: logoPulse var(--pulse-speed) ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px rgba(0, 214, 209, 0.65));
+      }
+      50% {
+        transform: scale(1.06);
+        filter: drop-shadow(0 0 22px rgba(0, 255, 240, 0.9));
+      }
+      100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px rgba(0, 214, 209, 0.65));
+      }
+    }
+
+    @keyframes logoRipple {
+      0% {
+        transform: scale(0.82);
+        opacity: 0.4;
+      }
+      60% {
+        transform: scale(1.08);
+        opacity: 0.95;
+      }
+      100% {
+        transform: scale(1.24);
+        opacity: 0;
+      }
+    }
+
+    .title-block {
+      text-align: center;
+      margin-bottom: 12px;
+      margin-top: 4px;
+    }
+
+    h1 {
+      font-size: 23px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin: 0 0 6px;
+      color: #f9fbff;
+    }
+
+    .subtitle {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.78;
+    }
+
+    .bio {
+      max-width: 360px;
+      margin: 10px auto 12px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #d7f7ff;
+      opacity: 0.9;
+    }
+
+    /* ===== SOCIAL ICON ROW (INSTAGRAM / FACEBOOK / TIKTOK) ===== */
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 6px 0 18px;
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #0f172a, #020617);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(0, 214, 209, 0.55);
+      transition:
+        transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1),
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .social-icon img {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 18px 40px rgba(0, 214, 209, 0.95);
+      border-color: rgba(178, 255, 252, 0.95);
+    }
+
+    /* ===== LINKS ===== */
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 6px 0 10px;
+    }
+
+    .link-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 18px 10px 14px;
+      border-radius: var(--link-radius);
+      background: radial-gradient(circle at 0% 0%, #064458, #020c16 90%);
+      border: 1px solid rgba(0, 0, 0, 0.7);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+      text-decoration: none;
+      color: inherit;
+      transition:
+        transform 0.26s cubic-bezier(0.22, 0.61, 0.36, 1),
+        box-shadow 0.26s ease,
+        background 0.26s ease;
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .icon-pill {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #0f172a, #020617);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.85);
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .link-label {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .link-row:hover {
+      transform: translateY(-5px) scale(1.015);
+      box-shadow:
+        0 24px 60px rgba(0, 214, 209, 0.7),
+        0 0 0 1px rgba(0, 214, 209, 0.9);
+      background: radial-gradient(circle at 5% 0%, #043848, #020814 90%);
+    }
+
+    /* FOOTER */
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 16px;
+    }
+
+    /* BACKGROUND ANIMATION */
+
+    @keyframes bgShiftDark {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 50% 100%;
+      }
+      100% {
+        background-position: 100% 0%;
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 28px 22px 22px;
+        border-radius: 26px;
+      }
+
+      .logo {
+        width: 118px;
+      }
+
+      .logo-orbit::before {
+        width: 170px;
+        height: 170px;
+      }
+
+      .logo-orbit::after {
+        width: 138px;
+        height: 138px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .icon-pill {
+        width: 36px;
+        height: 36px;
+      }
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+      .link-label {
+        font-size: 14px;
+      }
+      .social-icon {
+        width: 34px;
+        height: 34px;
+      }
+      .social-icon img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="sparkles"></div>
 
-<!-- BACKGROUND LAYERS -->
-<div class="bg-image"></div>
-<div class="bg-vignette"></div>
-<div class="bg-overlay"></div>
+  <div class="page">
+    <div class="card-wrapper">
+      <main class="card">
+        <div class="card-inner">
+          <header class="header">
+            <div class="logo-orbit">
+              <img src="logo.png" alt="BrightPulse Studio logo" class="logo" />
+            </div>
+            <div class="title-block">
+              <h1>BRIGHTPULSE STUDIO</h1>
+              <div class="subtitle">MUSIC · IDENTITY · MANIFESTATION</div>
+            </div>
 
-<!-- CONTENT CARD -->
-<div class="container">
+            <p class="bio">
+              ✨ Identity-driven, feminine-frequency soundscapes for soft power,
+              manifestation and deep inner alignment. ✨
+            </p>
 
-  <div class="logo-wrapper">
-    <img src="logo.png" class="logo" alt="BrightPulse Logo">
+            <div class="social-row">
+              <a
+                class="social-icon"
+                href="https://www.instagram.com/brightpulsestudio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="Instagram.png" alt="Instagram" />
+              </a>
+
+              <a
+                class="social-icon"
+                href="https://www.facebook.com/61583987851461"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="Facebook.png" alt="Facebook" />
+              </a>
+
+              <a
+                class="social-icon"
+                href="https://www.tiktok.com/@brightpulsestudio"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="TikTok.png" alt="TikTok" />
+              </a>
+            </div>
+          </header>
+<a
+              class="link-row"
+              href="https://ko-fi.com/brightpulsestudio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="Ko-fi.png" alt="Ko-fi" class="icon" />
+                </span>
+                <span class="link-label">Support the frequency on Ko-fi 🍵 </span>
+              </div>
+            </a>
+          <section class="links">
+            <a
+              class="link-row"
+              href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="Spotify.png" alt="Spotify" class="icon" />
+                </span>
+                <span class="link-label">✨ Listen on Spotify</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://music.apple.com/us/artist/brightpulse-studio/1853791966"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="Apple Music.png" alt="Apple Music" class="icon" />
+                </span>
+                <span class="link-label">✨ Listen on Apple Music</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="YouTube Music.png" alt="YouTube Music" class="icon" />
+                </span>
+                <span class="link-label">✨ Listen on YouTube Music</span>
+              </div>
+            </a>
+
+            <a
+              class="link-row"
+              href="https://www.youtube.com/@BrightPulse.Studio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="link-left">
+                <span class="icon-pill">
+                  <img src="YouTube.png" alt="YouTube" class="icon" />
+                </span>
+                <span class="link-label">✨ Subscribe to my YouTube channel</span>
+              </div>
+            </a>
+
+            <!-- EMAIL BUTTON – schimbă adresa dacă vrei alta -->
+      <a class="link-row" 
+        href="mailto:brightpulsestudio@gmail.com">
+        <span class="icon-pill">
+           <img src="Email.png" alt="Email" class="icon" />
+        </span>
+        <span class="link-label">Contact me</span>
+      </a>
+          </section>
+
+          <footer class="footer">
+  ✨ Made with BrightPulse energy ✨
+  <div style="font-size:11px; opacity:0.55; margin-top:6px;">
+    © 2025 BrightPulse Studio. All rights reserved.
   </div>
-
-  <h1>BRIGHTPULSE STUDIO</h1>
-  <div class="subtext">MUSIC · IDENTITY · MANIFESTATION</div>
-
-  <div class="bio">
-    ✨ Identity-driven, feminine-frequency soundscapes for empowerment, manifestation and soul alignment. ✨
-  </div>
-
-  <!-- SOCIAL ICONS -->
-  <div class="social-row">
-    <a href="https://www.instagram.com/brightpulsestudio/" target="_blank"><img src="Instagram.png"></a>
-    <a href="https://www.facebook.com/61583987851461" target="_blank"><img src="Facebook.png"></a>
-    <a href="https://www.tiktok.com/@brightpulsestudio" target="_blank"><img src="TikTok.png"></a>
-  </div>
-
-  <!-- LINKS -->
-  <a class="link-btn" href="https://ko-fi.com/brightpulsestudio" target="_blank">
-    <img src="Ko-fi.png"> Support the frequency on Ko-fi ☕
-  </a>
-
-  <a class="link-btn" href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l" target="_blank">
-    <img src="Spotify.png"> Listen on Spotify
-  </a>
-
-  <a class="link-btn" href="https://music.apple.com/us/artist/brightpulse-studio/1853791966" target="_blank">
-    <img src="Apple Music.png"> Listen on Apple Music
-  </a>
-
-  <a class="link-btn" href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg" target="_blank">
-    <img src="YouTube Music.png"> Listen on YouTube Music
-  </a>
-
-  <a class="link-btn" href="https://www.youtube.com/@BrightPulse.Studio" target="_blank">
-    <img src="YouTube.png"> Subscribe on YouTube
-  </a>
-
-  <a class="link-btn" href="mailto:brightpulsestudio@gmail.com">
-    <img src="Email.png"> Contact me
-  </a>
-
-  <!-- FOOTER -->
-  <footer>
-    ✨ Made with BrightPulse energy ✨
-    <div class="copyright">
-      © 2025 BrightPulse Studio. All rights reserved.
+</footer>
+        </div>
+      </main>
     </div>
-  </footer>
-
-</div>
-
+  </div>
 </body>
 </html>
