@@ -74,8 +74,14 @@
       max-width: 520px;
     }
 
-    .card {
-      background: radial-gradient(circle at top, #023846, #020c16 80%);
+ .card {
+      /* AICI E SCHIMBAREA:
+         1. background.png în card (fără animatie)
+         2. gradient închis peste, ca să rămână lizibile elementele
+      */
+      background:
+        radial-gradient(circle at top, rgba(2, 56, 70, 0.98), rgba(2, 12, 22, 0.99) 80%),
+        url("background.png") center/cover no-repeat;
       border-radius: var(--card-radius);
       padding: 32px 40px 26px;
       box-shadow: var(--shadow-strong);
@@ -532,6 +538,7 @@
   </div>
 </body>
 </html>
+
 
 
 
