@@ -2,29 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BrightPulse Studio – Official Link Hub</title>
+  <title>BrightPulse Studio – Links</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="BrightPulse Studio – music • identity • manifestation. Listen on Spotify, Apple Music, YouTube Music and follow on social platforms." />
 
-  <!-- Font Montserrat -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="icon" href="logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --turquoise: #00b6c8;
-      --turquoise-soft: #6de0ea;
-      --gold: #e5c676;
-      --dark-bg-1: #004050;
-      --dark-bg-2: #020817;
-      --light-bg-1: #c6f5f8;
-      --light-bg-2: #fff3c7;
-      --radius-card: 26px;
-      --radius-btn: 999px;
+      /* AICI SCHIMBI VITEZA PULSULUI – 100 BPM ≈ 0.6s */
+      --pulse-speed: 0.6s;
+
+      --turquoise: #04e6d5;
+      --turquoise-soft: rgba(4, 230, 213, 0.65);
+      --card-radius: 26px;
     }
 
     * {
@@ -35,465 +28,488 @@
 
     body {
       min-height: 100vh;
-      margin: 0;
-      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
-      transition: background 0.6s ease, color 0.6s ease;
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at 0% 0%, #c8f8ff 0%, #e7ffe4 45%, #ffe6b8 100%);
+      background-size: 180% 180%;
+      animation: bgFlow 26s ease-in-out infinite alternate;
+      color: #12313b;
       overflow: hidden;
+      position: relative;
     }
 
-    /* ===== BACKGROUND THEMES (GRADIENT ANIMAT) ===== */
     body.dark-mode {
-      background:
-        radial-gradient(circle at 10% 0%, rgba(0,166,176,0.85) 0, transparent 55%),
-        radial-gradient(circle at 0% 100%, rgba(0,166,176,0.55) 0, transparent 55%),
-        linear-gradient(135deg, var(--dark-bg-1), var(--dark-bg-2));
-      color: #f9fbff;
-      background-size: 160% 160%;
-      animation: bgDrift 28s ease-in-out infinite alternate;
+      background: radial-gradient(circle at 0% -20%, #0a585e 0%, #021723 48%, #020915 100%);
+      animation-duration: 32s;
+      color: #f5fbff;
     }
 
     body.light-mode {
-      background:
-        radial-gradient(circle at 0% 0%, rgba(0,166,176,0.65) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(229,198,118,0.70) 0, transparent 55%),
-        linear-gradient(135deg, var(--light-bg-1), var(--light-bg-2));
-      color: #0f172a;
-      background-size: 160% 160%;
-      animation: bgDrift 28s ease-in-out infinite alternate;
+      /* doar pentru claritate */
     }
 
-    @keyframes bgDrift {
+    @keyframes bgFlow {
       0%   { background-position: 0% 0%; }
-      50%  { background-position: 40% 65%; }
-      100% { background-position: 100% 100%; }
+      50%  { background-position: 100% 40%; }
+      100% { background-position: 20% 100%; }
     }
 
     /* ===== SPARKLES LAYER ===== */
     .sparkles {
       position: fixed;
       inset: -10%;
+      z-index: 1;
       pointer-events: none;
-      z-index: 0;
       background-image:
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.55) 0, transparent 3px),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.45) 0, transparent 3px),
-        radial-gradient(circle at 30% 80%, rgba(255,255,255,0.40) 0, transparent 3px),
-        radial-gradient(circle at 65% 75%, rgba(255,255,255,0.50) 0, transparent 2.5px),
-        radial-gradient(circle at 50% 40%, rgba(255,255,255,0.35) 0, transparent 3px);
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.65) 0, transparent 3px),
+        radial-gradient(circle at 80% 18%, rgba(4,230,213,0.55) 0, transparent 3px),
+        radial-gradient(circle at 18% 70%, rgba(255,255,255,0.55) 0, transparent 3px),
+        radial-gradient(circle at 65% 78%, rgba(4,230,213,0.45) 0, transparent 3px),
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,0.45) 0, transparent 3px);
+      background-size: 260px 260px;
       mix-blend-mode: screen;
-      opacity: 0.50;
-      animation: sparkleDrift 32s linear infinite;
+      opacity: 0.55;
+      animation: sparkleDrift 34s linear infinite;
     }
 
     body.dark-mode .sparkles {
-      opacity: 0.62;
+      opacity: 0.75;
     }
 
     body.light-mode .sparkles {
-      opacity: 0.40;
+      opacity: 0.5;
     }
 
     @keyframes sparkleDrift {
-      0%   { transform: translate3d(0,0,0); }
-      50%  { transform: translate3d(-40px, 25px, 0); }
-      100% { transform: translate3d(50px,-30px, 0); }
+      0%   { transform: translate3d(0,0,0) scale(1); }
+      50%  { transform: translate3d(-40px, 30px,0) scale(1.07); }
+      100% { transform: translate3d(60px,-35px,0) scale(1.02); }
     }
 
     /* ===== CARD ===== */
     .card {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       width: 100%;
       max-width: 460px;
-      padding: 32px 26px 34px;
-      border-radius: var(--radius-card);
-      backdrop-filter: blur(26px);
-      border: 1px solid rgba(255,255,255,0.16);
+      padding: 36px 30px 26px;
+      border-radius: var(--card-radius);
+      background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
       box-shadow:
-        0 0 26px rgba(0,0,0,0.45),
-        0 0 40px rgba(0,156,166,0.38),
-        0 0 70px rgba(0,156,166,0.32);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: background 0.6s ease, box-shadow 0.6s ease, border-color 0.6s ease;
+        0 28px 60px rgba(0, 108, 117, 0.28),
+        0 0 0 1px rgba(255,255,255,0.7);
+      backdrop-filter: blur(22px);
     }
 
     body.dark-mode .card {
-      background: radial-gradient(circle at top,
-                   rgba(109,224,234,0.22),
-                   rgba(4,25,32,0.96));
-    }
-
-    body.light-mode .card {
-      background: radial-gradient(circle at top,
-                   rgba(255,255,255,0.99),
-                   rgba(243,250,255,0.99));
-      border-color: rgba(15,23,42,0.10);
+      background: radial-gradient(circle at 0% 0%, rgba(5,122,135,0.9), rgba(3,32,44,0.98));
       box-shadow:
-        0 0 22px rgba(255,255,255,0.95),
-        0 0 40px rgba(0,156,166,0.38),
-        0 0 60px rgba(0,156,166,0.36);
+        0 28px 80px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255,255,255,0.05);
     }
 
-    /* ===== LOGO + ENERGY RIPPLE ===== */
-    .logo-wrap {
-      position: relative;
+    /* ===== TOGGLE ===== */
+    .mode-toggle {
+      position: fixed;
+      top: 16px;
+      right: 18px;
+      z-index: 4;
+      border: none;
+      border-radius: 999px;
+      padding: 7px 16px 7px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      background: rgba(255,255,255,0.92);
+      color: #12313b;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+      backdrop-filter: blur(18px);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.25s ease;
+    }
+
+    .mode-toggle span {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
     }
 
-    .logo-wrap::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
+    .mode-toggle-icon {
+      width: 20px;
+      height: 20px;
       border-radius: 999px;
-      background:
-        radial-gradient(circle,
-          rgba(0,182,200,0.45) 0%,
-          rgba(0,182,200,0.20) 35%,
-          transparent 70%);
-      opacity: 0.58;
-      animation: ripplePulse 3s ease-out infinite;
-      pointer-events: none;
-      z-index: 0;
+      background: radial-gradient(circle at 30% 30%, #ffeaa7 0%, #ffd369 45%, #ffb347 100%);
+      box-shadow: 0 0 18px rgba(255,211,105,0.85);
+    }
+
+    body.dark-mode .mode-toggle {
+      background: rgba(2,15,24,0.92);
+      color: #f4feff;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.9);
+    }
+
+    body.dark-mode .mode-toggle-icon {
+      background: radial-gradient(circle at 30% 30%, #ffeaa7 0%, #ffd369 40%, #ffb347 80%, transparent 100%);
+      box-shadow: 0 0 18px rgba(255,225,155,0.9);
+    }
+
+    .mode-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.24);
+    }
+
+    /* ===== LOGO + GLOW ===== */
+    .logo-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 26px;
+      margin-top: 6px;
+    }
+
+    .logo-ripple {
+      position: absolute;
+      inset: -12px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(4,230,213,0.9) 0%, rgba(4,230,213,0.42) 34%, transparent 70%);
+      filter: blur(4px);
+      opacity: 0.75;
+      animation: ripplePulse var(--pulse-speed) ease-out infinite;
+    }
+
+    .logo {
+      position: relative;
+      width: 136px; /* logo mai mare */
+      height: auto;
+      z-index: 1;
+      filter:
+        drop-shadow(0 0 20px rgba(4,230,213,0.7))
+        drop-shadow(0 8px 26px rgba(0,0,0,0.4));
+      animation: logoPulse var(--pulse-speed) ease-in-out infinite;
+      transition: transform 0.18s ease;
+    }
+
+    .logo-wrapper:hover .logo {
+      transform: scale(1.06) translateY(-1px);
+    }
+
+    @keyframes logoPulse {
+      0% {
+        transform: scale(1);
+        filter:
+          drop-shadow(0 0 18px rgba(4,230,213,0.6))
+          drop-shadow(0 8px 22px rgba(0,0,0,0.45));
+      }
+      50% {
+        transform: scale(1.05);
+        filter:
+          drop-shadow(0 0 32px rgba(4,230,213,0.95))
+          drop-shadow(0 14px 32px rgba(0,0,0,0.55));
+      }
+      100% {
+        transform: scale(1);
+        filter:
+          drop-shadow(0 0 18px rgba(4,230,213,0.6))
+          drop-shadow(0 8px 22px rgba(0,0,0,0.45));
+      }
     }
 
     @keyframes ripplePulse {
       0% {
-        transform: scale(0.86);
-        opacity: 0.55;
-      }
-      50% {
-        transform: scale(1);
+        transform: scale(0.9);
         opacity: 0.8;
       }
-      100% {
-        transform: scale(1.12);
-        opacity: 0.0;
-      }
-    }
-
-    .logo {
-      width: 145px;
-      height: auto;
-      position: relative;
-      z-index: 1;
-      /* Glow turcoaz continuu, sincronizat ~100 BPM (0.6s) */
-      animation: pulseLogo 0.6s ease-in-out infinite;
-    }
-
-    @keyframes pulseLogo {
-      0% {
-        filter: drop-shadow(0 0 4px rgba(0,190,210,0.45))
-                drop-shadow(0 0 10px rgba(0,190,210,0.30));
-        transform: scale(1);
-      }
-      50% {
-        filter: drop-shadow(0 0 16px rgba(0,220,240,0.95))
-                drop-shadow(0 0 28px rgba(0,220,240,0.80));
-        transform: scale(1.06);
+      70% {
+        transform: scale(1.25);
+        opacity: 0;
       }
       100% {
-        filter: drop-shadow(0 0 4px rgba(0,190,210,0.45))
-                drop-shadow(0 0 10px rgba(0,190,210,0.30));
-        transform: scale(1);
+        transform: scale(1.3);
+        opacity: 0;
       }
     }
 
-    /* ===== TEXT TITLU ===== */
-    h1 {
-      font-size: 1.7rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+    body.dark-mode .logo-ripple {
+      background: radial-gradient(circle, rgba(4,230,213,0.9) 0%, rgba(4,230,213,0.42) 28%, transparent 70%);
+      filter: blur(5px);
+    }
+
+    /* ===== TITLU ===== */
+    .title-block {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .title-main {
+      letter-spacing: 0.18em;
+      font-size: 18px;
       font-weight: 700;
-      margin-bottom: 6px;
+      text-transform: uppercase;
     }
 
-    .subtitle {
-      font-size: 0.78rem;
+    .title-sub {
+      margin-top: 6px;
+      font-size: 11px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      opacity: 0.86;
-      margin-bottom: 24px;
+      opacity: 0.72;
     }
 
     /* ===== LINKS ===== */
     .links {
-      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 8px;
+      margin-bottom: 22px;
     }
 
-    .link-btn {
-      width: 100%;
+    .link-row {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      gap: 10px;
-      padding: 12px 20px;
-      border-radius: var(--radius-btn);
-      border: 1px solid rgba(255,255,255,0.15);
-      text-decoration: none;
-      font-size: 0.98rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      position: relative;
-      overflow: hidden;
-      transition:
-        background 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.18s ease,
-        border-color 0.25s ease,
-        color 0.25s ease;
-    }
-
-    body.dark-mode .link-btn {
-      background: linear-gradient(135deg,
-               rgba(255,255,255,0.05),
-               rgba(0,0,0,0.60));
-      color: #f9fbff;
-      box-shadow:
-        0 0 10px rgba(0,0,0,0.55),
-        0 0 16px rgba(0,156,166,0.35);
-    }
-
-    body.light-mode .link-btn {
-      background: linear-gradient(135deg,
-               rgba(255,255,255,0.98),
-               rgba(255,255,255,0.80));
-      color: #0f172a;
-      border-color: rgba(15,23,42,0.08);
-      box-shadow:
-        0 0 10px rgba(255,255,255,0.95),
-        0 0 16px rgba(229,198,118,0.32);
-    }
-
-    /* hover: mișcare + shadow turcoaz puternic */
-    .link-btn:hover {
-      transform: translateY(-2px) scale(1.04);
-      box-shadow:
-        0 0 24px rgba(0,200,220,0.95),
-        0 0 38px rgba(0,200,220,0.85);
-      border-color: rgba(0,200,220,0.85);
-    }
-
-    .link-btn span.label {
-      flex: 1;
-      text-align: center;
-    }
-
-    .icon {
-      width: 22px;
-      height: 22px;
-      flex-shrink: 0;
-      border-radius: 6px;
-    }
-
-    /* ===== FOOTNOTE ===== */
-    .footnote {
-      margin-top: 16px;
-      font-size: 0.72rem;
-      opacity: 0.7;
-    }
-
-    /* ===== THEME TOGGLE (SUN / MOON GLOW) ===== */
-    .theme-toggle {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      z-index: 50;
+      gap: 12px;
+      padding: 10px 18px;
       border-radius: 999px;
-      padding: 6px 12px;
-      border: 1px solid rgba(255,255,255,0.3);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.76rem;
-      cursor: pointer;
-      background: rgba(7,12,20,0.82);
-      color: #f9fbff;
-      backdrop-filter: blur(10px);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: inherit;
+      background: linear-gradient(120deg, rgba(255,255,255,0.95), rgba(255,255,255,0.92));
       box-shadow:
-        0 0 14px rgba(120,180,255,0.7),
-        0 0 28px rgba(10,40,90,0.9);
-      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        0 10px 22px rgba(0,0,0,0.12),
+        0 0 0 1px rgba(255,255,255,0.8);
+      transition:
+        transform 0.18s cubic-bezier(0.19, 0.9, 0.22, 1),
+        box-shadow 0.18s ease,
+        background 0.22s ease,
+        filter 0.18s ease;
     }
 
-    body.light-mode .theme-toggle {
-      background: rgba(255,255,255,0.94);
-      color: #0f172a;
-      border-color: rgba(15,23,42,0.12);
+    body.dark-mode .link-row {
+      background: radial-gradient(circle at 0% 0%, rgba(12,103,113,0.9), rgba(5,33,42,0.98));
       box-shadow:
-        0 0 14px rgba(255,235,170,0.9),
-        0 0 30px rgba(255,255,255,0.95);
+        0 10px 28px rgba(0,0,0,0.85),
+        0 0 0 1px rgba(255,255,255,0.04);
     }
 
-    .theme-toggle span {
+    .link-row:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow:
+        0 16px 40px rgba(4,230,213,0.45),
+        0 0 0 1px rgba(4,230,213,0.7);
+      background: radial-gradient(circle at 0% 0%, rgba(255,255,255,1), rgba(234,255,252,0.98));
+      filter: saturate(1.1);
+    }
+
+    body.dark-mode .link-row:hover {
+      background: radial-gradient(circle at 0% 0%, rgba(14,130,142,1), rgba(3,20,30,1));
+      box-shadow:
+        0 20px 52px rgba(0,0,0,0.95),
+        0 0 18px rgba(4,230,213,0.7);
+    }
+
+    .icon-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+      overflow: hidden;
     }
 
-    .theme-toggle .emoji {
-      font-size: 1rem;
+    body.dark-mode .icon-circle {
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), rgba(0,0,0,0.85));
+      box-shadow: 0 4px 14px rgba(0,0,0,0.9);
     }
 
-    @media (max-width: 480px) {
+    .icon-circle img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* icon text pentru Email */
+    .icon-char {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0a3b40;
+    }
+
+    body.dark-mode .icon-char {
+      color: #dffeff;
+    }
+
+    .link-label {
+      flex: 1;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-note {
+      text-align: center;
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .footer-note span {
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.7));
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
       .card {
-        padding: 26px 20px 30px;
+        margin: 18px;
+        padding: 30px 18px 22px;
       }
+
       .logo {
-        width: 115px;
+        width: 122px;
       }
-      h1 {
-        font-size: 1.45rem;
-      }
-      .subtitle {
-        font-size: 0.72rem;
-        letter-spacing: 0.24em;
-      }
-      .link-btn {
-        font-size: 0.9rem;
+
+      .link-row {
         padding-inline: 14px;
       }
-      .theme-toggle {
-        top: 14px;
-        right: 14px;
-        padding-inline: 10px;
+
+      .mode-toggle {
+        top: 12px;
+        right: 12px;
+        padding-inline: 12px;
       }
     }
   </style>
 </head>
 
-<body class="dark-mode">
-  <!-- Toggle Light/Dark -->
-  <button id="modeToggle" class="theme-toggle" type="button">
-    <span class="emoji" id="modeEmoji">🌙</span>
-    <span id="modeText">Dark</span>
-  </button>
-
-  <!-- Sparkles layer -->
+<body class="light-mode">
   <div class="sparkles"></div>
 
-  <!-- CARD PRINCIPAL -->
+  <!-- Toggle Dark / Light -->
+  <button id="modeToggle" class="mode-toggle">
+    <span class="mode-toggle-icon" id="modeEmoji">☀️</span>
+    <span id="modeText">Light</span>
+  </button>
+
+  <!-- Card -->
   <main class="card">
-    <div class="logo-wrap">
-      <img src="logo.png" alt="BrightPulse Studio logo" class="logo" />
+    <div class="logo-wrapper">
+      <div class="logo-ripple"></div>
+      <img src="logo.png" alt="BrightPulse Studio logo" class="logo">
     </div>
 
-    <h1>BrightPulse Studio</h1>
-    <p class="subtitle">MUSIC · IDENTITY · MANIFESTATION</p>
+    <div class="title-block">
+      <div class="title-main">BRIGHTPULSE STUDIO</div>
+      <div class="title-sub">MUSIC · IDENTITY · MANIFESTATION</div>
+    </div>
 
-    <nav class="links">
-      <!-- 1. Spotify -->
-      <a class="link-btn"
-         href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l"
-         target="_blank" rel="noopener">
-        <img src="Spotify.png" alt="" class="icon">
-        <span class="label">Spotify</span>
+    <div class="links">
+      <a class="link-row" href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l" target="_blank" rel="noopener">
+        <span class="icon-circle">
+          <img src="Spotify.png" alt="Spotify">
+        </span>
+        <span class="link-label">Spotify</span>
       </a>
 
-      <!-- 2. Apple Music -->
-      <a class="link-btn"
-         href="https://music.apple.com/us/artist/brightpulse-studio/1853791966"
-         target="_blank" rel="noopener">
-        <img src="Apple Music.png" alt="" class="icon">
-        <span class="label">Apple Music</span>
+      <a class="link-row" href="https://music.apple.com/us/artist/brightpulse-studio/1853791966" target="_blank" rel="noopener">
+        <span class="icon-circle">
+          <img src="Apple Music.png" alt="Apple Music">
+        </span>
+        <span class="link-label">Apple Music</span>
       </a>
 
-      <!-- 3. YouTube Music -->
-      <a class="link-btn"
-         href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg"
-         target="_blank" rel="noopener">
-        <img src="YouTube Music.png" alt="" class="icon">
-        <span class="label">YouTube Music</span>
+      <a class="link-row" href="https://music.youtube.com/channel/UCAvWzAg5aVYqdy33U_C0hqg" target="_blank" rel="noopener">
+        <span class="icon-circle">
+          <img src="YouTube Music.png" alt="YouTube Music">
+        </span>
+        <span class="link-label">YouTube Music</span>
       </a>
 
-      <!-- 4. YouTube -->
-      <a class="link-btn"
-         href="https://www.youtube.com/@BrightPulse.Studio"
-         target="_blank" rel="noopener">
-        <img src="YouTube.png" alt="" class="icon">
-        <span class="label">YouTube</span>
+      <a class="link-row" href="https://www.youtube.com/@BrightPulse.Studio" target="_blank" rel="noopener">
+        <span class="icon-circle">
+          <img src="YouTube.png" alt="YouTube">
+        </span>
+        <span class="link-label">YouTube</span>
       </a>
 
-      <!-- 5. Instagram -->
-      <a class="link-btn"
-         href="https://www.instagram.com/brightpulsestudio/"
-         target="_blank" rel="noopener">
-        <img src="Instagram.png" alt="" class="icon">
-        <span class="label">Instagram</span>
+      <a class="link-row" href="https://www.instagram.com/brightpulsestudio/" target="_blank" rel="noopener">
+        <span class="icon-circle">
+          <img src="Instagram.png" alt="Instagram">
+        </span>
+        <span class="link-label">Instagram</span>
       </a>
 
-      <!-- 6. Facebook -->
-      <a class="link-btn"
-         href="https://www.facebook.com/61583987851461"
-         target="_blank" rel="noopener">
-        <img src="Facebook.png" alt="" class="icon">
-        <span class="label">Facebook</span>
+      <a class="link-row" href="https://www.facebook.com/61583987851461" target="_blank" rel="noopener">
+        <span class="icon-circle">
+          <img src="Facebook.png" alt="Facebook">
+        </span>
+        <span class="link-label">Facebook</span>
       </a>
 
-      <!-- 7. TikTok -->
-      <a class="link-btn"
-         href="https://www.tiktok.com/@brightpulsestudio"
-         target="_blank" rel="noopener">
-        <img src="TikTok.png" alt="" class="icon">
-        <span class="label">TikTok</span>
+      <a class="link-row" href="https://www.tiktok.com/@brightpulsestudio" target="_blank" rel="noopener">
+        <span class="icon-circle">
+          <img src="TikTok.png" alt="TikTok">
+        </span>
+        <span class="link-label">TikTok</span>
       </a>
 
-      <!-- 8. Ko-fi -->
-      <a class="link-btn"
-         href="https://ko-fi.com/brightpulsestudio"
-         target="_blank" rel="noopener">
-        <img src="Ko-fi.png" alt="" class="icon">
-        <span class="label">Ko-fi</span>
+      <a class="link-row" href="https://ko-fi.com/brightpulsestudio" target="_blank" rel="noopener">
+        <span class="icon-circle">
+          <img src="Ko-fi.png" alt="Ko-fi">
+        </span>
+        <span class="link-label">Ko-fi</span>
       </a>
-    </nav>
 
-    <p class="footnote">Made with BrightPulse energy ✨</p>
+      <!-- EMAIL BUTTON – schimbă adresa dacă vrei alta -->
+      <a class="link-row" href="mailto:brightpulsestudio@gmail.com">
+        <span class="icon-circle">
+          <span class="icon-char">✉</span>
+        </span>
+        <span class="link-label">Email</span>
+      </a>
+    </div>
+
+    <p class="footer-note">
+      Made with BrightPulse energy <span>✨</span>
+    </p>
   </main>
 
-  <!-- THEME TOGGLE SCRIPT -->
   <script>
-    const toggleBtn = document.getElementById('modeToggle');
-    const modeText = document.getElementById('modeText');
-    const modeEmoji = document.getElementById('modeEmoji');
+    const toggleBtn  = document.getElementById('modeToggle');
+    const modeText   = document.getElementById('modeText');
+    const modeEmoji  = document.getElementById('modeEmoji');
 
-    function applyMode(mode) {
-      document.body.classList.remove('light-mode', 'dark-mode');
-      document.body.classList.add(mode);
-
-      const isDark = mode === 'dark-mode';
-      modeText.textContent = isDark ? 'Dark' : 'Light';
+    function applyMode(theme) {
+      const isDark = theme === 'dark';
+      document.body.classList.toggle('dark-mode', isDark);
+      document.body.classList.toggle('light-mode', !isDark);
+      modeText.textContent  = isDark ? 'Dark'  : 'Light';
       modeEmoji.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('bp-theme', theme);
     }
 
-    // preferința salvată
-    const savedMode = localStorage.getItem('bps-theme');
-    if (savedMode === 'light-mode' || savedMode === 'dark-mode') {
-      applyMode(savedMode);
-    } else {
-      applyMode('dark-mode'); // default
-    }
-
+    // Toggle la click
     toggleBtn.addEventListener('click', () => {
-      const isDark = document.body.classList.contains('dark-mode');
-      const newMode = isDark ? 'light-mode' : 'dark-mode';
-      applyMode(newMode);
-      localStorage.setItem('bps-theme', newMode);
+      const currentIsDark = document.body.classList.contains('dark-mode');
+      applyMode(currentIsDark ? 'light' : 'dark');
     });
+
+    // La încărcare: ia tema din localStorage sau preferința de sistem
+    (function initTheme() {
+      const stored = localStorage.getItem('bp-theme');
+      if (stored === 'dark' || stored === 'light') {
+        applyMode(stored);
+      } else {
+        const prefersDark = window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyMode(prefersDark ? 'dark' : 'light');
+      }
+    })();
   </script>
 </body>
 </html>
-
