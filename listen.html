@@ -1,11 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Stop Chasing. Start Attracting. | BrightPulse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="logo_favicon.png" />
-
 
   <style>
     :root {
@@ -14,15 +13,24 @@
       --shadow-strong: 0 30px 80px rgba(0, 0, 0, 0.55);
     }
     * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+    
     body {
-      margin: 0; min-height: 100vh;
+      margin: 0; 
+      min-height: 100vh;
       font-family: system-ui, -apple-system, sans-serif;
       color: #e2f3ff;
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px;
-      /* Fundalul ramane acelasi */
+      
+      display: flex; 
+      /* AICI AM FACUT SCHIMBAREA: */
+      align-items: flex-start; /* Le aliniaza sus, nu la mijloc */
+      justify-content: center;
+      
+      /* Aici reglezi cat de sus sa fie. 60px e ideal */
+      padding: 60px 20px 20px; 
+      
       background: radial-gradient(circle at top, rgba(0, 101, 114, 0.92), rgba(1, 8, 23, 0.97) 80%), url("background.png") center/cover no-repeat;
     }
+
     .card {
       background: radial-gradient(circle at top, #03424f, #02121c 85%);
       border-radius: var(--card-radius);
@@ -39,18 +47,16 @@
     }
     .content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
     
-    /* MODIFICARE: Logo-ul arata mai bine putin mai mic sub poza */
     .logo-small { 
       width: 45px; 
       opacity: 0.9; 
-      margin-top: 20px;    /* Spatiu fata de poza */
-      margin-bottom: 15px; /* Spatiu fata de text */
+      margin-top: 20px;    
+      margin-bottom: 15px; 
     }
     
     .cover-art {
       width: 100%; border-radius: 16px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-      /* Am scos margin-bottom de aici pentru ca acum e logo-ul */
       border: 1px solid rgba(255,255,255,0.1);
     }
     h1 {
@@ -60,6 +66,7 @@
       text-transform: uppercase; letter-spacing: 1px;
     }
     p.subtitle { font-size: 15px; color: #b0e0e6; margin-bottom: 35px; opacity: 0.9; }
+    
     .spotify-btn {
       display: flex; align-items: center; justify-content: center; gap: 12px;
       background-color: #1DB954; color: white; text-decoration: none;
@@ -73,29 +80,4 @@
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="content">
-      
-      <img src="playlist_cover.jpg" alt="Feminine Frequency Playlist" class="cover-art">
-
-
-      <img src="logo.png" alt="BrightPulse" class="logo-small">
-
-
-      <h1>Stop Chasing.<br>Start Attracting.</h1>
-      <p class="subtitle">Neuro-acoustic frequencies for magnetic feminine energy.</p>
-
-
-      <a href="https://open.spotify.com/artist/0JY2jRdLYYlcPUnGwvpn3l" 
-         class="spotify-btn" 
-         target="_blank">
-        <img src="Spotify.png" class="spotify-icon" alt="">
-        Listen on Spotify
-      </a>
-
-
-      <div class="footer">© 2025 BrightPulse Studio</div>
-    </div>
-  </div>
-</body>
 </html>
